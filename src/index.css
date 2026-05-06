@@ -1,0 +1,113 @@
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS — DO NOT DELETE THIS COMMENT */
+@import url('https://fonts.cdnfonts.com/css/dream-avenue');
+@import url('https://fonts.cdnfonts.com/css/gabriel-sans');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+/* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED — DO NOT DELETE THIS COMMENT */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+
+:root {
+  --bg-primary: #F4F1EC;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6258;
+  --accent: #5C2A1F;
+  --accent-light: #7A3A2C;
+  --accent-deep: #3D1A14;
+  --border-subtle: rgba(120, 100, 85, 0.18);
+  --card-bg: #EDE8E0;
+  --divider: rgba(120, 100, 85, 0.22);
+  --contact-bg: #3D1A14;
+  --neutral-warm: #8B7D6B;
+  --champagne: #C8A977;
+  --gold-soft: #B89968;
+  --maroon: #5C2A1F;
+}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Gabriel Sans', 'Inter', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Gabriel Sans', 'Inter', sans-serif;
+    color: var(--text-primary);
+    letter-spacing: -0.015em;
+    font-weight: 500;
+  }
+  h2 {
+    color: var(--maroon);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .font-display-name {
+    font-family: 'Dream Avenue', 'Cormorant Garamond', serif;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  .font-serif-display {
+    font-family: 'Dream Avenue', 'Cormorant Garamond', serif;
+  }
+  .luxe-caps {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+    font-size: 0.7rem;
+  }
+}
+@layer utilities {
+  .luxe-caps {
+    @apply font-sans font-bold tracking-[0.2em] uppercase text-[0.65rem];
+  }
+  .luxe-card {
+    @apply bg-[var(--card-bg)] border border-[var(--ink-subtle)] shadow-[0_4px_24px_-8px_rgba(0,0,0,0.05)];
+  }
+  .luxe-card-hover {
+    @apply transition-all duration-500 hover:border-[var(--copper)]/40 hover:shadow-[0_8px_32px_-8px_rgba(0,0,0,0.1)];
+  }
+}
+html, body {
+  overflow-x: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media print {
+  body { background-color: #FFFFFF; color: #000000; }
+  body::before { display: none; }
+  .no-print { display: none !important; }
+  .page-break-inside-avoid { page-break-inside: avoid; }
+  .print-shadow-none { box-shadow: none !important; }
+  .print-border-none { border: none !important; }
+}
