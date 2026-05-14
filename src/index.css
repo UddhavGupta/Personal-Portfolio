@@ -111,3 +111,110 @@ html, body {
   .print-shadow-none { box-shadow: none !important; }
   .print-border-none { border: none !important; }
 }
+/* ----- Print resume styles ----- */
+
+/* Hide the print resume on screen by default */
+.print-resume {
+  display: none;
+}
+@media print {
+  @page {
+    size: letter;
+    margin: 0.55in 0.65in;
+  }
+  html, body {
+    background: #ffffff !important;
+    color: #111 !important;
+    overflow: visible !important;
+  }
+  /* Hide all the editorial site chrome and content for print */
+  .no-print,
+  header.no-print,
+  footer.no-print,
+  nav,
+  .blob-cursor,
+  .scroll-progress {
+    display: none !important;
+  }
+  body > div > *:not(.print-resume) {
+    display: none !important;
+  }
+  .print-resume {
+    display: block !important;
+    width: 100% !important;
+    color: #1a1a1a !important;
+    font-family: Georgia, 'Times New Roman', serif !important;
+    font-size: 10pt !important;
+    line-height: 1.4 !important;
+  }
+  .print-resume * { color: inherit !important; }
+  .print-resume .pr-header h1 {
+    font-size: 26pt;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 4pt 0;
+    color: #1a1a1a !important;
+  }
+  .print-resume .pr-tagline {
+    font-size: 10pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #5C2A1F !important;
+    margin: 0 0 4pt 0;
+    font-weight: 600;
+  }
+  .print-resume .pr-contact {
+    font-size: 8.5pt;
+    color: #4a4a4a !important;
+    margin: 0;
+  }
+  .print-resume .pr-rule {
+    border: 0;
+    border-top: 1px solid #5C2A1F;
+    margin: 10pt 0 12pt 0;
+  }
+  .print-resume .pr-section { margin-bottom: 10pt; }
+  .print-resume .pr-section h2 {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #5C2A1F !important;
+    margin: 0 0 5pt 0;
+  }
+  .print-resume .pr-section p {
+    margin: 0 0 4pt 0;
+  }
+  .print-resume .pr-role { margin-bottom: 7pt; }
+  .print-resume .pr-role-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8pt;
+  }
+  .print-resume .pr-company {
+    font-weight: 700;
+    font-size: 10.5pt;
+  }
+  .print-resume .pr-date {
+    font-size: 8.5pt;
+    color: #6a6a6a !important;
+    letter-spacing: 0.06em;
+  }
+  .print-resume .pr-title {
+    font-size: 9.5pt;
+    font-style: italic;
+    color: #5C2A1F !important;
+    margin: 1pt 0 2pt 0;
+  }
+  .print-resume .pr-edu p { margin-bottom: 4pt; font-size: 9.5pt; }
+  .print-resume .pr-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14pt;
+    font-size: 8pt;
+    color: #6a6a6a !important;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+}

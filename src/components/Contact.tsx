@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Linkedin, BookOpen, Github, MapPin } from 'lucide-react';
+import { Signature } from './Signature';
 export function Contact() {
   return (
     <section id="contact" className="py-16 mb-12">
@@ -132,14 +133,14 @@ export function Contact() {
               </span>
             </a>
             <a
-              href="https://beliapp.com/users/camtraveller"
+              href="https://beliapp.com"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2.5 text-sm font-medium tracking-wide transition-colors min-h-[44px]"
               style={{
                 color: 'rgba(245, 239, 230, 0.85)'
               }}
-              aria-label="Beli profile, @camtraveller">
+              aria-label="Beli, @camtraveller">
               
               <MapPin
                 className="w-4 h-4 transition-transform group-hover:-translate-y-0.5"
@@ -150,6 +151,14 @@ export function Contact() {
               <span className="border-b border-transparent group-hover:border-champagne transition-colors pb-0.5">
                 Beli
               </span>
+              <span
+                className="text-xs italic font-light"
+                style={{
+                  color: 'rgba(245, 239, 230, 0.55)'
+                }}>
+                
+                @camtraveller
+              </span>
             </a>
           </div>
 
@@ -159,6 +168,11 @@ export function Contact() {
               borderTop: '1px solid rgba(200, 169, 119, 0.15)'
             }}>
             
+            {/* Hand-drawn signature */}
+            <div className="mb-6 -ml-2">
+              <Signature width={220} />
+            </div>
+
             <p
               className="text-sm italic font-light leading-relaxed"
               style={{
@@ -167,6 +181,36 @@ export function Contact() {
               
               Also on an eternal quest for the best coffee in every city I land
               in. Recommendations welcome.
+            </p>
+            <p
+              className="text-[11px] tracking-wide font-light leading-relaxed mt-3"
+              style={{
+                color: 'rgba(245, 239, 230, 0.4)'
+              }}>
+              
+              <span
+                className="luxe-caps"
+                style={{
+                  color: 'var(--champagne)',
+                  fontSize: '0.55rem'
+                }}>
+                
+                Easter egg
+              </span>
+              <span className="mx-2 opacity-50">·</span>
+              Type{' '}
+              <kbd
+                className="px-1.5 py-0.5 rounded text-[10px] font-mono tracking-normal"
+                style={{
+                  border: '1px solid rgba(200, 169, 119, 0.35)',
+                  color: 'rgba(245, 239, 230, 0.75)',
+                  background: 'rgba(255,255,255,0.02)'
+                }}>
+                
+                coffee
+              </kbd>{' '}
+              anywhere to see my cafés map, then follow me on Beli
+              <span className="italic"> @camtraveller</span> for the rest.
             </p>
           </div>
         </div>

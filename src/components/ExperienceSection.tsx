@@ -85,8 +85,73 @@ function ExecutiveSearchExposure() {
           <h4 className="text-xs font-semibold uppercase tracking-widest text-copper">
             Executive Search Exposure
           </h4>
-          <span className="text-[10px] text-copper/70 font-medium px-2 py-0.5 border border-copper/30 rounded-full bg-copper/5 group-hover/btn:bg-copper/10 transition-colors">
+          <span className="relative inline-flex text-[10px] text-copper/70 font-medium px-2 py-0.5 border border-copper/30 rounded-full bg-copper/5 group-hover/btn:bg-copper/10 transition-colors">
             {isOpen ? 'Hide' : 'View portfolio & clients'}
+            {!isOpen &&
+            <motion.svg
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 w-full h-full overflow-visible"
+              preserveAspectRatio="none"
+              viewBox="0 0 100 100"
+              initial={{
+                opacity: 0
+              }}
+              whileInView={{
+                opacity: 1
+              }}
+              viewport={{
+                once: true,
+                amount: 0.6
+              }}>
+              
+                <defs>
+                  <filter
+                  id="pr-glow"
+                  x="-30%"
+                  y="-30%"
+                  width="160%"
+                  height="160%">
+                  
+                    <feGaussianBlur stdDeviation="0.6" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <motion.rect
+                x="0.6"
+                y="0.6"
+                width="98.8"
+                height="98.8"
+                rx="50"
+                ry="50"
+                fill="none"
+                stroke="#C8A977"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+                filter="url(#pr-glow)"
+                initial={{
+                  pathLength: 0,
+                  opacity: 0
+                }}
+                whileInView={{
+                  pathLength: [0, 1, 1, 0, 1],
+                  opacity: [0, 0.9, 0.6, 0, 0]
+                }}
+                viewport={{
+                  once: true,
+                  amount: 0.6
+                }}
+                transition={{
+                  duration: 3.6,
+                  times: [0, 0.35, 0.5, 0.7, 1],
+                  ease: 'easeInOut',
+                  delay: 0.4
+                }} />
+              
+              </motion.svg>
+            }
           </span>
         </div>
         <motion.div

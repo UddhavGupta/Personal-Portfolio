@@ -33,12 +33,61 @@ interface CountryFeature {
   geo: any;
   tier: 'lived' | 'visited' | 'other';
 }
+const LIVED_CITIES_LOCAL: {
+  name: string;
+  lon: number;
+  lat: number;
+}[] = [
+{
+  name: 'New Delhi',
+  lon: 77.2,
+  lat: 28.6
+},
+{
+  name: 'Mumbai',
+  lon: 72.87,
+  lat: 19.07
+},
+{
+  name: 'Jakarta',
+  lon: 106.8,
+  lat: -6.2
+},
+{
+  name: 'Surabaya',
+  lon: 112.75,
+  lat: -7.25
+},
+{
+  name: 'Los Angeles',
+  lon: -118.24,
+  lat: 34.05
+},
+{
+  name: 'San Francisco',
+  lon: -122.42,
+  lat: 37.77
+},
+{
+  name: 'Seattle',
+  lon: -122.33,
+  lat: 47.6
+},
+{
+  name: 'Chicago',
+  lon: -87.63,
+  lat: 41.85
+}];
+
 export function Globe({ size = 120 }: GlobeProps) {
   const reduce = useReducedMotion();
   const [countries, setCountries] = useState<CountryFeature[] | null>(null);
   const [lambda, setLambda] = useState(0);
   const rafRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number | null>(null);
+  const [shiftHeld, setShiftHeld] = useState(false);
+  const [hovering, setHovering] = useState(false);
+  const paused = shiftHeld && hovering;
   // Outer container houses both the globe and the external swirl marks
   const padding = 14;
   const total = size + padding * 2;
@@ -78,7 +127,7 @@ export function Globe({ size = 120 }: GlobeProps) {
       if (lastTimeRef.current == null) lastTimeRef.current = t;
       const dt = t - lastTimeRef.current;
       lastTimeRef.current = t;
-      setLambda((prev) => (prev + dt / 1000 * 36) % 360);
+      if (!paused) setLambda((prev) => (prev + dt / 1000 * 36) % 360);
       rafRef.current = requestAnimationFrame(tick);
     };
     rafRef.current = requestAnimationFrame(tick);
@@ -86,7 +135,22 @@ export function Globe({ size = 120 }: GlobeProps) {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       lastTimeRef.current = null;
     };
-  }, [reduce]);
+  }, [reduce, paused]);
+  // Listen to Shift globally — held while hovering the globe pauses rotation
+  useEffect(() => {
+    const onDown = (e: KeyboardEvent) => {
+      if (e.key === 'Shift') setShiftHeld(true);
+    };
+    const onUp = (e: KeyboardEvent) => {
+      if (e.key === 'Shift') setShiftHeld(false);
+    };
+    window.addEventListener('keydown', onDown);
+    window.addEventListener('keyup', onUp);
+    return () => {
+      window.removeEventListener('keydown', onDown);
+      window.removeEventListener('keyup', onUp);
+    };
+  }, []);
   const cx = total / 2;
   const cy = total / 2;
   const globeR = size / 2 - 2;
@@ -124,7 +188,9 @@ export function Globe({ size = 120 }: GlobeProps) {
         height: total
       }}
       aria-hidden="true"
-      className="relative shrink-0">
+      className="relative shrink-0"
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}>
       
       {/* External swirl marks — orbit slowly outside the globe */}
       <svg
@@ -230,6 +296,26 @@ export function Globe({ size = 120 }: GlobeProps) {
           })}
           </g>
         }
+        {paused &&
+        LIVED_CITIES_LOCAL.map((c) => {
+          const p = projection([c.lon, c.lat]);
+          if (!p) return null;
+          return (
+            <g key={c.name}>
+                <circle cx={p[0]} cy={p[1]} r="1.6" fill="#5C2A1F" />
+                <text
+                x={p[0] + 4}
+                y={p[1] - 4}
+                fontFamily="Georgia, serif"
+                fontSize="5"
+                fill="#5C2A1F"
+                opacity="0.85">
+                
+                  {c.name}
+                </text>
+              </g>);
+
+        })}
       </svg>
     </div>);
 

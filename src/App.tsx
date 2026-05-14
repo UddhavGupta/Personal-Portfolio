@@ -16,6 +16,10 @@ import { OperatingToolkit } from './components/OperatingToolkit';
 import { OperatingPrinciples } from './components/OperatingPrinciples';
 import { ScrollProgress } from './components/ScrollProgress';
 import { PaperLight } from './components/PaperLight';
+import { CoffeeEasterEgg } from './components/CoffeeEasterEgg';
+import { PrintResume } from './components/PrintResume';
+import { LoadingInk } from './components/LoadingInk';
+import { DirectorsCut } from './components/DirectorsCut';
 export function App() {
   useEffect(() => {
     // Title
@@ -88,6 +92,9 @@ export function App() {
       <PaperLight />
       <BlobCursor />
       <SideNav />
+      <CoffeeEasterEgg />
+      <LoadingInk />
+      <DirectorsCut />
 
       <main className="relative z-10 max-w-3xl mx-auto px-6 sm:px-12 xl:max-w-4xl pt-24 pb-12 print:max-w-none print:mx-0 print:px-8 print:pt-0">
         <Hero />
@@ -148,15 +155,20 @@ export function App() {
       </main>
 
       <footer className="relative z-10 max-w-3xl mx-auto px-6 sm:px-12 xl:max-w-4xl pb-16 no-print">
-        <div className="border-t border-divider pt-8 flex items-center justify-between">
+        <div className="border-t border-divider pt-8 flex items-center justify-between gap-4">
           <p className="text-xs text-stone-400 tracking-wide">
             © Uddhav Gupta 2026
+          </p>
+          <p className="text-[10px] text-stone-400/80 tracking-[0.2em] uppercase font-mono">
+            v.83
           </p>
           <p className="text-xs text-stone-400 tracking-wide">
             Built with intention.
           </p>
         </div>
       </footer>
+
+      <PrintResume />
     </div>);
 
 }

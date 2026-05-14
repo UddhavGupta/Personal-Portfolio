@@ -268,7 +268,16 @@ export function Elsewhere() {
               learning about everything.
             </p>
           </div>
-          <Globe size={120} />
+          <div className="flex flex-col items-center shrink-0">
+            <Globe size={120} />
+            <p className="text-[10px] tracking-wide text-stone-400 italic mt-2 text-center max-w-[160px] leading-snug">
+              Hold{' '}
+              <kbd className="px-1 py-0.5 rounded text-[9px] not-italic font-mono border border-stone-300 text-stone-500">
+                ⇧
+              </kbd>{' '}
+              over the globe to see cities I've lived in.
+            </p>
+          </div>
         </div>
 
         {/* Photography */}
