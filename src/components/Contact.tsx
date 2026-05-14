@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Linkedin, BookOpen, Github, FileText } from 'lucide-react';
+import { Mail, Linkedin, BookOpen, Github, MapPin } from 'lucide-react';
 export function Contact() {
   return (
     <section id="contact" className="py-16 mb-12">
@@ -37,8 +37,6 @@ export function Contact() {
         
 
         <div className="relative max-w-2xl">
-          <p className="luxe-caps text-champagne mb-6">In Correspondence</p>
-
           <h2
             className="text-3xl sm:text-5xl font-light text-white mb-8 tracking-tight"
             style={{
@@ -134,22 +132,23 @@ export function Contact() {
               </span>
             </a>
             <a
-              href="/resume.pdf"
+              href="https://beliapp.com/users/camtraveller"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2.5 text-sm font-medium tracking-wide transition-colors min-h-[44px]"
               style={{
-                color: '#F5EFE6'
-              }}>
+                color: 'rgba(245, 239, 230, 0.85)'
+              }}
+              aria-label="Beli profile, @camtraveller">
               
-              <FileText
+              <MapPin
                 className="w-4 h-4 transition-transform group-hover:-translate-y-0.5"
                 style={{
                   color: 'var(--champagne)'
                 }} />
               
               <span className="border-b border-transparent group-hover:border-champagne transition-colors pb-0.5">
-                Resume
+                Beli
               </span>
             </a>
           </div>

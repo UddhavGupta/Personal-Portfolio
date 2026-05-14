@@ -8,7 +8,7 @@ const primaryExperiences = [
   date: 'Summer 2025',
   location: 'San Francisco, CA',
   mandate:
-  'Optimize AI-driven support journeys and define the 2026 omnichannel roadmap for 9M+ members.'
+  'Defined AI-driven support journey improvements and contributed to the 2026 omnichannel roadmap for 9M+ members.'
 },
 {
   company: 'Uber',
@@ -16,7 +16,7 @@ const primaryExperiences = [
   date: 'Spring 2025',
   location: 'Chicago, IL',
   mandate:
-  'Diagnose adoption funnels and design loyalty MVPs for B2B mobility.'
+  'Diagnosed B2B shuttle adoption funnels and designed loyalty MVPs to increase corporate rider activation.'
 },
 {
   company: 'GO ICON',
@@ -24,7 +24,7 @@ const primaryExperiences = [
   date: 'Spring 2025',
   location: 'Chicago, IL',
   mandate:
-  'Evaluate market expansion and scope MVP concepts for a senior living SaaS platform.'
+  'Evaluated adjacent market expansion opportunities and scoped MVP concepts for a senior living SaaS platform.'
 },
 {
   company: 'Parker Remick',
@@ -32,7 +32,7 @@ const primaryExperiences = [
   date: '2021 – 2024',
   location: 'Seattle, WA',
   mandate:
-  'Build scalable commercial systems and lead global C-suite product/engineering searches. Promoted twice in 15 months.',
+  'Built scalable commercial systems and led global C-suite product and engineering searches. Promoted twice in 15 months.',
   progression: ['Analyst', 'Associate I', 'Associate II']
 },
 {
@@ -41,7 +41,7 @@ const primaryExperiences = [
   date: '2019 – 2020',
   location: 'San Francisco, CA',
   mandate:
-  'Improve GTM visibility and tracking for enterprise learning SaaS.'
+  'Improved GTM visibility and revenue tracking for an enterprise learning SaaS platform.'
 }];
 
 const earlierExperiences = [
@@ -128,32 +128,30 @@ function ExecutiveSearchExposure() {
                 for venture-backed, PE-backed, and enterprise clients.
               </p>
 
-              <div className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-[10px] uppercase tracking-wider font-medium text-stone-400/70 mb-2">
-                      Investor ecosystems
-                    </p>
-                    <div className="rounded-lg border border-ink-subtle/30 overflow-hidden bg-white/40 p-2">
-                      <img
-                      src="/Screenshot_2026-05-06_at_12.49.22_AM.png"
-                      alt="Select investor portfolios including Andreessen Horowitz, Sequoia, Accel, Coatue, Bain Capital, Y Combinator, and others"
-                      className="w-full h-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-90 transition-all duration-500" />
-                    
-                    </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider font-medium text-stone-400/70 mb-3">
+                    Investor ecosystems
+                  </p>
+                  <div className="rounded-lg border border-ink-subtle/30 overflow-hidden bg-white p-3">
+                    <img
+                    src="/Screenshot_2026-05-06_at_12.49.22_AM.png"
+                    alt="Select investor portfolios including Andreessen Horowitz, Sequoia, Accel, Coatue, Bain Capital, Y Combinator, and others"
+                    className="w-full h-auto block" />
+                  
                   </div>
+                </div>
 
-                  <div>
-                    <p className="text-[10px] uppercase tracking-wider font-medium text-stone-400/70 mb-2">
-                      Selected clients
-                    </p>
-                    <div className="rounded-lg border border-ink-subtle/30 overflow-hidden bg-white/40 p-2">
-                      <img
-                      src="/Screenshot_2026-05-06_at_12.49.41_AM.png"
-                      alt="Select clients including Square, Walmart, Instacart, Figma, Postman, OpenSea, Superhuman, and others"
-                      className="w-full h-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-90 transition-all duration-500" />
-                    
-                    </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider font-medium text-stone-400/70 mb-3">
+                    Selected clients
+                  </p>
+                  <div className="rounded-lg border border-ink-subtle/30 overflow-hidden bg-white p-3">
+                    <img
+                    src="/Screenshot_2026-05-06_at_12.49.41_AM.png"
+                    alt="Select clients including Square, Walmart, Instacart, Figma, Postman, OpenSea, Superhuman, and others"
+                    className="w-full h-auto block" />
+                  
                   </div>
                 </div>
               </div>

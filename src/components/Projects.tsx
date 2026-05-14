@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, BookOpen } from 'lucide-react';
+import { BuildNotesModal } from './BuildNotesModal';
 const projects = [
 {
   title: 'OrbitCRM',
@@ -28,7 +29,8 @@ const projects = [
   built:
   'A personal portfolio system that brings product judgment, writing, prototypes, and operating range into one navigable experience.',
   status: 'Published',
-  link: null
+  link: null,
+  buildNotes: true
 }];
 
 function StatusBadge({ status }: {status: string;}) {
@@ -53,6 +55,7 @@ function StatusBadge({ status }: {status: string;}) {
 
 }
 export function Projects() {
+  const [buildNotesOpen, setBuildNotesOpen] = useState(false);
   return (
     <section id="projects" className="py-16">
       <motion.div
@@ -121,23 +124,39 @@ export function Projects() {
                 </div>
               </div>
 
-              {project.link &&
+              {(project.link || project.buildNotes) &&
             <div className="mt-6 pt-5 border-t border-ink-subtle/40">
-                  <a
+                  {project.link ?
+              <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-copper hover:text-maroon transition-colors min-h-[44px]">
                 
-                    {project.linkText}
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
+                      {project.linkText}
+                      <ArrowUpRight className="w-4 h-4" />
+                    </a> :
+              project.buildNotes ?
+              <button
+                type="button"
+                onClick={() => setBuildNotesOpen(true)}
+                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-copper hover:text-maroon transition-colors min-h-[44px]">
+                
+                      <BookOpen className="w-4 h-4" />
+                      View Build Notes
+                    </button> :
+              null}
                 </div>
             }
             </motion.div>
           )}
         </div>
       </motion.div>
+
+      <BuildNotesModal
+        open={buildNotesOpen}
+        onClose={() => setBuildNotesOpen(false)} />
+      
     </section>);
 
 }

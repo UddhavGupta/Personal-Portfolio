@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState, useRef, lazy } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { XIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
+import { Globe } from './Globe';
 const photography = [
 {
   url: "/Screenshot_2026-05-04_at_12.01.48_AM.png",
@@ -258,12 +259,17 @@ export function Elsewhere() {
           duration: 0.6
         }}>
         
-        <h2 className="text-2xl font-bold mb-2">Elsewhere</h2>
-        <p className="text-sm text-stone-400 italic mb-12">
-          22 countries, 850 restaurant reviews, a camera since age 11, piano
-          since age 7, an eternal coffee quest, and an insatiable love for
-          learning about everything.
-        </p>
+        <div className="flex items-start justify-between gap-6 mb-12">
+          <div className="flex-1">
+            <h2 className="text-2xl font-bold mb-2">Elsewhere</h2>
+            <p className="text-sm text-stone-400 italic max-w-2xl">
+              22 countries, 850 restaurant reviews, a camera since age 11, piano
+              since age 7, an eternal coffee quest, and an insatiable love for
+              learning about everything.
+            </p>
+          </div>
+          <Globe size={120} />
+        </div>
 
         {/* Photography */}
         <div className="mb-12">

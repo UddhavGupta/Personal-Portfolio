@@ -11,7 +11,7 @@ const navItems = [
 },
 {
   id: 'writing',
-  label: 'Thought Leadership'
+  label: 'Selected Thinking'
 },
 {
   id: 'experience',
@@ -99,8 +99,8 @@ export function SideNav() {
             </span>
           </div>
           {/* Tiny page indicator dot */}
-          <div className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-maroon flex items-center justify-center">
-            <span className="text-[7px] font-medium text-white leading-none">
+          <div className="absolute -bottom-1 -right-1 px-1 h-4 min-w-[16px] rounded-full bg-[var(--bg-primary)] border border-maroon flex items-center justify-center">
+            <span className="text-[8px] font-bold text-maroon leading-none tabular-nums tracking-tight">
               {String(activeIndex + 1).padStart(2, '0')}
             </span>
           </div>
