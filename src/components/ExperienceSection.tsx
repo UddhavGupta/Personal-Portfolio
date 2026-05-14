@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useEffect, useState, useRef, Fragment } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDownIcon } from 'lucide-react';
 const primaryExperiences = [
@@ -72,6 +72,67 @@ const earlierExperiences = [
 
 function ExecutiveSearchExposure() {
   const [isOpen, setIsOpen] = useState(false);
+  const pillRef = useRef<HTMLSpanElement | null>(null);
+  const [glowKey, setGlowKey] = useState(0);
+  const [glowActive, setGlowActive] = useState(false);
+  const cooldownRef = useRef(false);
+  const GLOW_DURATION = 5200;
+  const offTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const triggerGlow = () => {
+    if (cooldownRef.current) return;
+    cooldownRef.current = true;
+    setGlowActive(true);
+    setGlowKey((k) => k + 1);
+    if (offTimer.current) clearTimeout(offTimer.current);
+    offTimer.current = setTimeout(() => {
+      setGlowActive(false);
+      cooldownRef.current = false;
+    }, GLOW_DURATION + 150);
+  };
+  // Initial reveal once the pill scrolls into view
+  useEffect(() => {
+    if (isOpen) return;
+    const el = pillRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            triggerGlow();
+            obs.disconnect();
+          }
+        });
+      },
+      {
+        threshold: [0.5]
+      }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [isOpen]);
+  // Re-trigger glow when cursor comes near the pill
+  useEffect(() => {
+    if (isOpen) return;
+    const handleMove = (e: MouseEvent) => {
+      const el = pillRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = e.clientX - cx;
+      const dy = e.clientY - cy;
+      const dist = Math.hypot(dx, dy);
+      const PROXIMITY = 220;
+      if (dist < PROXIMITY) {
+        triggerGlow();
+      }
+    };
+    window.addEventListener('mousemove', handleMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMove);
+      if (offTimer.current) clearTimeout(offTimer.current);
+    };
+  }, [isOpen]);
   return (
     <div className="mt-6 pt-5 border-t border-ink-subtle/40">
       <button
@@ -85,10 +146,14 @@ function ExecutiveSearchExposure() {
           <h4 className="text-xs font-semibold uppercase tracking-widest text-copper">
             Executive Search Exposure
           </h4>
-          <span className="relative inline-flex text-[10px] text-copper/70 font-medium px-2 py-0.5 border border-copper/30 rounded-full bg-copper/5 group-hover/btn:bg-copper/10 transition-colors">
+          <span
+            ref={pillRef}
+            className="relative inline-flex text-[10px] text-copper/70 font-medium px-2 py-0.5 border border-copper/30 rounded-full bg-copper/5 group-hover/btn:bg-copper/10 transition-colors">
+            
             {isOpen ? 'Hide' : 'View portfolio & clients'}
-            {!isOpen &&
+            {!isOpen && glowActive &&
             <motion.svg
+              key={glowKey}
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 w-full h-full overflow-visible"
               preserveAspectRatio="none"
@@ -96,29 +161,59 @@ function ExecutiveSearchExposure() {
               initial={{
                 opacity: 0
               }}
-              whileInView={{
+              animate={{
                 opacity: 1
-              }}
-              viewport={{
-                once: true,
-                amount: 0.6
               }}>
               
                 <defs>
                   <filter
                   id="pr-glow"
-                  x="-30%"
-                  y="-30%"
-                  width="160%"
-                  height="160%">
+                  x="-50%"
+                  y="-50%"
+                  width="200%"
+                  height="200%">
                   
-                    <feGaussianBlur stdDeviation="0.6" result="blur" />
+                    <feGaussianBlur stdDeviation="1.6" result="blur1" />
+                    <feGaussianBlur
+                    in="SourceGraphic"
+                    stdDeviation="0.4"
+                    result="blur2" />
+                  
                     <feMerge>
-                      <feMergeNode in="blur" />
+                      <feMergeNode in="blur1" />
+                      <feMergeNode in="blur2" />
                       <feMergeNode in="SourceGraphic" />
                     </feMerge>
                   </filter>
                 </defs>
+                {/* Outer soft halo */}
+                <motion.rect
+                x="0.6"
+                y="0.6"
+                width="98.8"
+                height="98.8"
+                rx="50"
+                ry="50"
+                fill="none"
+                stroke="#C8A977"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                filter="url(#pr-glow)"
+                initial={{
+                  pathLength: 0,
+                  opacity: 0
+                }}
+                animate={{
+                  pathLength: [0, 1, 1, 1, 1],
+                  opacity: [0, 1, 1, 0.85, 0]
+                }}
+                transition={{
+                  duration: 5.2,
+                  times: [0, 0.18, 0.55, 0.85, 1],
+                  ease: 'easeInOut'
+                }} />
+              
+                {/* Crisp inner stroke for definition */}
                 <motion.rect
                 x="0.6"
                 y="0.6"
@@ -130,24 +225,18 @@ function ExecutiveSearchExposure() {
                 stroke="#C8A977"
                 strokeWidth="1.2"
                 strokeLinecap="round"
-                filter="url(#pr-glow)"
                 initial={{
                   pathLength: 0,
                   opacity: 0
                 }}
-                whileInView={{
-                  pathLength: [0, 1, 1, 0, 1],
-                  opacity: [0, 0.9, 0.6, 0, 0]
-                }}
-                viewport={{
-                  once: true,
-                  amount: 0.6
+                animate={{
+                  pathLength: [0, 1, 1, 1, 1],
+                  opacity: [0, 1, 0.95, 0.8, 0]
                 }}
                 transition={{
-                  duration: 3.6,
-                  times: [0, 0.35, 0.5, 0.7, 1],
-                  ease: 'easeInOut',
-                  delay: 0.4
+                  duration: 5.2,
+                  times: [0, 0.18, 0.55, 0.85, 1],
+                  ease: 'easeInOut'
                 }} />
               
               </motion.svg>
