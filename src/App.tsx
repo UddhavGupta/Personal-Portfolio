@@ -1,4 +1,4 @@
-import React, { useEffect, createElement } from 'react';
+import React, { useEffect, useState, createElement } from 'react';
 import { SideNav } from './components/SideNav';
 import { Hero } from './components/Hero';
 import { ExperienceSection } from './components/ExperienceSection';
@@ -20,7 +20,11 @@ import { CoffeeEasterEgg } from './components/CoffeeEasterEgg';
 import { PrintResume } from './components/PrintResume';
 import { LoadingInk } from './components/LoadingInk';
 import { DirectorsCut } from './components/DirectorsCut';
+import { ChangelogDrawer } from './components/ChangelogDrawer';
+import { SealingRibbon } from './components/SealingRibbon';
+import { ChevronUp } from 'lucide-react';
 export function App() {
+  const [changelogOpen, setChangelogOpen] = useState(false);
   useEffect(() => {
     // Title
     document.title = 'Uddhav Gupta | Product, AI, CX & Growth';
@@ -149,6 +153,8 @@ export function App() {
 
         <InkDivider />
 
+        <SealingRibbon />
+
         <SectionReveal delay={0.05}>
           <Contact />
         </SectionReveal>
@@ -159,14 +165,24 @@ export function App() {
           <p className="text-xs text-stone-700 tracking-wide">
             © Uddhav Gupta 2026
           </p>
-          <p className="text-[10px] text-stone-700 tracking-[0.2em] uppercase font-mono">
-            v.93
-          </p>
+          <button
+            onClick={() => setChangelogOpen(true)}
+            className="group flex items-center gap-1.5 text-[10px] text-stone-700 hover:text-maroon tracking-[0.2em] uppercase font-mono transition-colors"
+            aria-label="View changelog">
+            
+            v.97
+            <ChevronUp className="w-3 h-3 opacity-50 group-hover:opacity-100 group-hover:-translate-y-0.5 transition-all" />
+          </button>
           <p className="text-xs text-stone-700 tracking-wide">
             Built with intention.
           </p>
         </div>
       </footer>
+
+      <ChangelogDrawer
+        open={changelogOpen}
+        onClose={() => setChangelogOpen(false)} />
+      
 
       <PrintResume />
     </div>);
