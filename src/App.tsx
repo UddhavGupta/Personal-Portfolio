@@ -21,7 +21,6 @@ import { PrintResume } from './components/PrintResume';
 import { LoadingInk } from './components/LoadingInk';
 import { DirectorsCut } from './components/DirectorsCut';
 import { ChangelogDrawer } from './components/ChangelogDrawer';
-import { SealingRibbon } from './components/SealingRibbon';
 import { ChevronUp } from 'lucide-react';
 export function App() {
   const [changelogOpen, setChangelogOpen] = useState(false);
@@ -152,8 +151,6 @@ export function App() {
         </SectionReveal>
 
         <InkDivider />
-
-        <SealingRibbon />
 
         <SectionReveal delay={0.05}>
           <Contact />

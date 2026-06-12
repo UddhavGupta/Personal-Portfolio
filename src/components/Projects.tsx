@@ -37,17 +37,6 @@ const projects: Project[] = [
   accent: 'rgba(92, 42, 31, 0.18)' // maroon
 },
 {
-  title: 'AI Talent OS',
-  problem:
-  'Modern talent teams still rely on manual sourcing and gut-feel screening; AI-native recruiter tooling is fragmented and shallow.',
-  built:
-  "What I'm building: a workflow concept for AI-assisted sourcing, candidate evidence review, and recruiter decision support.",
-  status: 'Prototyping',
-  link: null,
-  icon: Sparkles,
-  accent: 'rgba(61, 26, 20, 0.20)' // deep maroon / ink
-},
-{
   title: 'Say It Anyway',
   problem:
   'Most conversation games either stay too surface-level or become awkwardly intense too fast. I also never seem to have the physical decks with me when I actually want them, which is usually in impromptu settings.',
@@ -58,6 +47,17 @@ const projects: Project[] = [
   linkText: 'Play the game',
   icon: BoxIcon,
   accent: 'rgba(184, 153, 104, 0.22)' // gold-soft / champagne
+},
+{
+  title: 'AI Talent OS',
+  problem:
+  'Modern talent teams still rely on manual sourcing and gut-feel screening; AI-native recruiter tooling is fragmented and shallow.',
+  built:
+  "What I'm building: a workflow concept for AI-assisted sourcing, candidate evidence review, and recruiter decision support.",
+  status: 'Prototyping',
+  link: null,
+  icon: Sparkles,
+  accent: 'rgba(61, 26, 20, 0.20)' // deep maroon / ink
 },
 {
   title: 'Proof-of-Work Portfolio',
@@ -146,7 +146,7 @@ function ProjectAccordionCard({
       style={{
         // Per-card editorial tint — sits over the cream card surface
         backgroundImage: `radial-gradient(ellipse at center, ${project.accent} 0%, transparent 65%)`,
-        minHeight: 360
+        minHeight: 440
       }}>
       
       {/* Collapsed state — vertical title rail + status pip + icon at the bottom */}
@@ -277,8 +277,8 @@ function ProjectAccordionCard({
 }
 export function Projects() {
   const [buildNotesOpen, setBuildNotesOpen] = useState(false);
-  // Default the freshest project (Say It Anyway, index 2) to expanded
-  const [activeIndex, setActiveIndex] = useState(2);
+  // Default the freshest project (Say It Anyway, index 1) to expanded
+  const [activeIndex, setActiveIndex] = useState(1);
   return (
     <section id="projects" className="py-16">
       <motion.div
