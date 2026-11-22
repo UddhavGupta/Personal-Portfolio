@@ -1,13 +1,721 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Resume - Uddhav Gupta</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/index.tsx"></script>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uddhav Gupta | Strategy & Operations at DoorDash, Kellogg MBA</title>
+<meta name="description" content="Uddhav Gupta works on merchant product and growth strategy at DoorDash. Kellogg MBA. Previously Chime, Uber and executive search for venture-backed tech. Builds AI-native prototypes and writes about loyalty and growth.">
+<link rel="canonical" href="https://guptau.com/">
+<meta name="author" content="Uddhav Gupta">
+<meta name="theme-color" content="#ECEDE8">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Uddhav Gupta">
+<meta property="og:title" content="Uddhav Gupta | Strategy & Operations, DoorDash">
+<meta property="og:description" content="Merchant product and growth at DoorDash. Kellogg MBA. Prototypes, writing and a track record across fintech, mobility and executive search.">
+<meta property="og:url" content="https://guptau.com/">
+<meta property="og:image" content="https://guptau.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Uddhav Gupta, Strategy & Operations at DoorDash">
+<meta property="profile:first_name" content="Uddhav">
+<meta property="profile:last_name" content="Gupta">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Uddhav Gupta | Strategy & Operations, DoorDash">
+<meta name="twitter:description" content="Merchant product and growth at DoorDash. Kellogg MBA. Prototypes and writing on AI, loyalty and growth.">
+<meta name="twitter:image" content="https://guptau.com/og.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Uddhav Gupta",
+  "url": "https://guptau.com/",
+  "image": "https://guptau.com/img/portrait.webp",
+  "jobTitle": "Manager, Strategy & Operations",
+  "worksFor": { "@type": "Organization", "name": "DoorDash", "url": "https://www.doordash.com" },
+  "homeLocation": { "@type": "Place", "name": "Chicago, IL" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Kellogg School of Management, Northwestern University" },
+    { "@type": "CollegeOrUniversity", "name": "Claremont McKenna College" }
+  ],
+  "knowsAbout": ["Product strategy", "Growth", "Loyalty programs", "AI-native products", "Merchant experience", "Go-to-market strategy"],
+  "knowsLanguage": ["English", "Hindi", "Indonesian", "French"],
+  "sameAs": [
+    "https://www.linkedin.com/in/guptauddhav",
+    "https://github.com/uddhavgupta",
+    "https://beonepercentbetter.substack.com/"
+  ]
+}
+</script>
+
+<style>
+@font-face {
+  font-family: "Bricolage";
+  src: url("fonts/bricolage.woff2") format("woff2");
+  font-weight: 200 800; font-stretch: 75% 100%; font-display: swap;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("fonts/instrument-sans.woff2") format("woff2");
+  font-weight: 400 700; font-stretch: 75% 100%; font-display: swap;
+}
+
+:root {
+  --paper: #ECEDE8;
+  --sheet: #F6F6F3;
+  --ink: #131518;
+  --graphite: #565B63;
+  --rule: #C9CCC3;
+  --safelight: #B3261E;
+  --film: #17191C;
+
+  --display: "Bricolage", ui-sans-serif, system-ui, sans-serif;
+  --text: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --rail: 13.5rem;
+  --max: 72rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration-color: var(--rule); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-color: var(--safelight); }
+:focus-visible { outline: 2px solid var(--safelight); outline-offset: 3px; border-radius: 2px; }
+::selection { background: var(--safelight); color: var(--sheet); }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+.skip { position: absolute; left: -999px; top: 0.5rem; background: var(--ink); color: var(--sheet); padding: 0.5rem 0.75rem; z-index: 10; }
+.skip:focus { left: 0.5rem; }
+
+/* ---------- top bar ---------- */
+.bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 1.5rem; padding-bottom: 1.5rem;
+  font-size: 0.9375rem;
+}
+.mark {
+  font-family: var(--display); font-weight: 700; font-stretch: 75%;
+  font-size: 1.125rem; letter-spacing: -0.01em; text-decoration: none;
+}
+.bar nav { display: flex; gap: 1.5rem; }
+.bar nav a { text-decoration: none; color: var(--graphite); }
+.bar nav a:hover { color: var(--ink); }
+
+/* ---------- hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(14rem, 20rem);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: end;
+  padding-top: clamp(3rem, 9vw, 7.5rem);
+  padding-bottom: clamp(3.5rem, 8vw, 6rem);
+}
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-stretch: 75%;
+  font-variation-settings: "opsz" 96;
+  font-size: clamp(4.5rem, 21vw, 10.5rem);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+  margin: 0 0 2.25rem;
+}
+.hero h1 span { display: block; }
+.lede {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 28;
+  font-weight: 400;
+  font-size: clamp(1.375rem, 2.4vw, 1.75rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  max-width: 34ch;
+  margin: 0 0 1.5rem;
+}
+.status { color: var(--graphite); max-width: 52ch; margin: 0 0 2.25rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.7rem 1.15rem;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500; font-size: 0.9375rem;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+.btn.primary { background: var(--ink); color: var(--sheet); }
+.btn.primary:hover { background: var(--safelight); border-color: var(--safelight); }
+.btn:not(.primary):hover { background: var(--ink); color: var(--sheet); }
+
+.portrait { margin: 0; }
+.portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 30%;
+  background: var(--rule);
+}
+.portrait figcaption { font-size: 0.8125rem; color: var(--graphite); margin-top: 0.6rem; }
+
+/* ---------- sections ---------- */
+section { border-top: 1px solid var(--rule); }
+.sec {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  gap: 1.5rem clamp(1.5rem, 4vw, 3rem);
+  padding-top: clamp(3rem, 6vw, 4.5rem);
+  padding-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+.sec h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-stretch: 85%;
+  font-variation-settings: "opsz" 40;
+  font-size: 1.625rem;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+.sec .note { color: var(--graphite); font-size: 0.9375rem; margin: 0.6rem 0 0; max-width: 22ch; }
+.body { min-width: 0; }
+
+/* ---------- work index ---------- */
+.work { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.work li { border-bottom: 1px solid var(--rule); }
+.work details > summary {
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 9.5rem 1.25rem;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1.15rem 0;
+  cursor: pointer;
+}
+.work details > summary::-webkit-details-marker { display: none; }
+.work .t {
+  font-family: var(--display); font-weight: 600; font-stretch: 90%;
+  font-size: 1.3125rem; letter-spacing: -0.01em; line-height: 1.2;
+}
+.work .d { display: block; color: var(--graphite); font-size: 0.9688rem; margin-top: 0.2rem; }
+.work .k { font-size: 0.875rem; color: var(--graphite); }
+.work .k b { font-weight: 500; color: var(--ink); display: block; }
+.work .tog {
+  width: 1.25rem; height: 1.25rem; position: relative; align-self: center;
+}
+.work .tog::before, .work .tog::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 0.75rem; height: 1.5px; background: var(--ink);
+  transform: translate(-50%, -50%);
+  transition: transform 200ms ease;
+}
+.work .tog::after { transform: translate(-50%, -50%) rotate(90deg); }
+.work details[open] .tog::after { transform: translate(-50%, -50%) rotate(0deg); }
+.work summary:hover .t { color: var(--safelight); }
+.work .more {
+  padding: 0 2.5rem 1.6rem 0;
+  max-width: 62ch;
+}
+.work .more p { margin: 0 0 0.8rem; }
+.work .more h3 { font-size: 0.875rem; font-weight: 600; margin: 0 0 0.2rem; color: var(--graphite); }
+.work .go { font-weight: 500; }
+
+/* ---------- experience ---------- */
+.roles { list-style: none; margin: 0; padding: 0; }
+.roles > li {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.35rem 0;
+  border-top: 1px solid var(--rule);
+}
+.roles > li:first-child { border-top: 1px solid var(--ink); }
+.when { font-size: 0.875rem; color: var(--graphite); font-variant-numeric: tabular-nums; padding-top: 0.3rem; }
+.when span { display: block; }
+.co {
+  font-family: var(--display); font-weight: 600; font-stretch: 90%;
+  font-size: 1.3125rem; letter-spacing: -0.01em; line-height: 1.2; margin: 0;
+}
+.role { margin: 0.15rem 0 0.5rem; font-weight: 500; }
+.roles p.what { margin: 0; color: var(--graphite); max-width: 64ch; }
+.ladder { font-size: 0.875rem; color: var(--graphite); margin: 0 0 0.5rem; }
+
+.also { margin-top: 2.25rem; }
+.also h3, .edu h3 {
+  font-family: var(--display); font-weight: 600; font-stretch: 90%;
+  font-size: 1.0625rem; margin: 0 0 0.75rem;
+}
+.also ul { list-style: none; margin: 0; padding: 0; columns: 2 18rem; column-gap: 2rem; }
+.also li { break-inside: avoid; padding: 0.4rem 0; font-size: 0.9688rem; }
+.also li span { color: var(--graphite); }
+
+.edu { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+.edu p { margin: 0 0 0.35rem; }
+.edu .muted { color: var(--graphite); font-size: 0.9688rem; }
+
+/* ---------- principles ---------- */
+.principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 2.5rem; margin: 0; }
+.principles dt {
+  font-family: var(--display); font-weight: 600; font-stretch: 90%;
+  font-size: 1.1875rem; letter-spacing: -0.01em; margin: 0 0 0.35rem;
+}
+.principles dd { margin: 0; color: var(--graphite); max-width: 40ch; }
+.kit { margin: 2.5rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--rule); color: var(--graphite); font-size: 0.9688rem; max-width: 70ch; }
+.kit strong { color: var(--ink); font-weight: 500; }
+
+/* ---------- quotes ---------- */
+.quotes { display: grid; gap: 2.5rem; margin: 0; padding: 0; list-style: none; }
+.quotes blockquote { margin: 0; position: relative; }
+.quotes blockquote p {
+  font-family: var(--display); font-weight: 400;
+  font-variation-settings: "opsz" 28;
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  line-height: 1.38; letter-spacing: -0.01em;
+  margin: 0; max-width: 42ch;
+  text-indent: -0.42em;
+}
+.quotes blockquote p::before { content: "\201C"; color: var(--safelight); }
+.quotes blockquote p::after { content: "\201D"; }
+
+/* ---------- contact sheet (the one loud moment) ---------- */
+.sheet {
+  background: var(--film);
+  color: #E7E8E3;
+  border-top: 0;
+  padding: clamp(3rem, 6vw, 4.5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+}
+.sheet .sec { padding-top: 0; padding-bottom: 2.25rem; }
+.sheet h2 { color: #F6F6F3; }
+.sheet .note { color: #A3A7AD; max-width: 26ch; }
+.sheet .facts { margin: 0; color: #C9CCC6; max-width: 60ch; }
+.strip {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  --inset: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+  padding: 1.75rem var(--inset);
+  scroll-padding-inline: var(--inset);
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: #3A3E44 transparent;
+}
+.strip::before, .strip::after { content: none; }
+.frame {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  margin: 0;
+  width: clamp(15rem, 30vw, 22rem);
+}
+.frame .num {
+  display: flex; justify-content: space-between;
+  font-size: 0.75rem; color: var(--safelight);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+.frame .num span:last-child { color: #6E737A; }
+.frame img {
+  width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
+  background: #24272B;
+  outline: 1px solid #2B2F34;
+}
+.frame figcaption { font-size: 0.8125rem; color: #A3A7AD; margin-top: 0.55rem; }
+.sprockets {
+  height: 0.6rem;
+  background-image: radial-gradient(circle at 50% 50%, var(--paper) 0 0.17rem, transparent 0.18rem);
+  background-size: 1.15rem 0.6rem;
+  background-repeat: repeat-x;
+  opacity: 0.16;
+}
+
+/* ---------- contact ---------- */
+.contact { padding-top: clamp(4rem, 9vw, 7rem); padding-bottom: clamp(3rem, 6vw, 4.5rem); }
+.contact p.lead {
+  font-family: var(--display); font-weight: 400; font-variation-settings: "opsz" 28;
+  font-size: clamp(1.375rem, 2.4vw, 1.75rem); line-height: 1.3; letter-spacing: -0.01em;
+  max-width: 34ch; margin: 0 0 1.5rem;
+}
+.mail {
+  display: inline-block;
+  font-family: var(--display); font-weight: 700; font-stretch: 75%;
+  font-variation-settings: "opsz" 96;
+  font-size: clamp(2rem, 6.5vw, 5rem);
+  line-height: 1; letter-spacing: -0.03em;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.08em;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+.mail:hover { color: var(--safelight); border-color: var(--safelight); }
+.links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; margin: 2.25rem 0 0; padding: 0; list-style: none; }
+.links a { font-weight: 500; }
+.links span { color: var(--graphite); }
+
+footer { border-top: 1px solid var(--rule); }
+footer .wrap { display: flex; justify-content: space-between; gap: 1rem; padding-top: 1.5rem; padding-bottom: 2rem; font-size: 0.875rem; color: var(--graphite); }
+
+/* ---------- load moment ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1 span {
+    animation: rise 900ms cubic-bezier(.2,.7,.1,1) both;
+    clip-path: inset(0 0 0 0);
+  }
+  .hero h1 span + span { animation-delay: 90ms; }
+  .hero .lede, .hero .status, .hero .actions, .portrait {
+    animation: fade 700ms ease 380ms both;
+  }
+  @keyframes rise { from { transform: translateY(0.35em); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; }
+  .portrait { max-width: 20rem; }
+  .portrait img { aspect-ratio: 1; }
+  .sec { grid-template-columns: 1fr; }
+  .sec .note { max-width: 48ch; }
+}
+@media (max-width: 600px) {
+  .bar nav { gap: 1rem; }
+  .bar nav a.hide-sm { display: none; }
+  .work details > summary { grid-template-columns: minmax(0, 1fr) 1.25rem; }
+  .work .k { grid-column: 1; grid-row: 2; }
+  .work .tog { grid-row: 1; grid-column: 2; }
+  .work .k b { display: inline; }
+  .work .k b::after { content: ", "; font-weight: 400; color: var(--graphite); }
+  .work .more { padding-right: 0; }
+  .roles > li { grid-template-columns: 1fr; gap: 0.35rem; }
+  .when span { display: inline; }
+  .when span + span::before { content: ", "; }
+  .principles, .edu { grid-template-columns: 1fr; }
+  footer .wrap { flex-direction: column; }
+}
+@media print {
+  .bar nav, .actions, .sheet, .tog { display: none !important; }
+  body { background: #fff; }
+  .work details > div.more { display: block; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="wrap bar">
+  <a class="mark" href="/" aria-label="Uddhav Gupta, home">UG</a>
+  <nav aria-label="Sections">
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a class="hide-sm" href="#elsewhere">Elsewhere</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="wrap hero">
+    <div>
+      <h1><span>Uddhav</span><span>Gupta</span></h1>
+      <p class="lede">I find where a business is leaking value, then build the product, process or prototype that fixes it.</p>
+      <p class="status">Strategy &amp; Operations at DoorDash, on merchant product, experience and growth. Kellogg MBA. Before that: Chime, Uber, and three years in executive search for venture-backed tech.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:uddhavgupta1998@gmail.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/guptauddhav" rel="me">LinkedIn</a>
+        <a class="btn" href="#work">See the work</a>
+      </div>
+    </div>
+    <figure class="portrait">
+      <img src="img/portrait.webp" width="720" height="956" alt="Uddhav Gupta holding a camera under cherry blossoms at the University of Washington">
+      <figcaption>Cherry blossom season, University of Washington</figcaption>
+    </figure>
+  </div>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="wrap sec">
+      <div>
+        <h2 id="work-h">Selected work</h2>
+        <p class="note">Things I've built, written and taught. Open any line for the detail.</p>
+      </div>
+      <div class="body">
+        <ul class="work">
+          <li><details>
+            <summary>
+              <span><span class="t">OrbitCRM</span><span class="d">A personal CRM that tracks people, not pipelines.</span></span>
+              <span class="k"><b>Product</b>In testing</span>
+              <span class="tog" aria-hidden="true"></span>
+            </summary>
+            <div class="more">
+              <h3>Problem</h3>
+              <p>Relationship tracking is stuck inside enterprise CRMs built for sales pipelines, not human context.</p>
+              <h3>What I built</h3>
+              <p>A lightweight CRM for relationships, context, notes and follow-ups, without the bloat.</p>
+              <a class="go" href="https://tryorbitcrm.lovable.app">Open OrbitCRM ↗</a>
+            </div>
+          </details></li>
+
+          <li><details>
+            <summary>
+              <span><span class="t">Say It Anyway</span><span class="d">A conversation card game you can actually have on you.</span></span>
+              <span class="k"><b>Product</b>In testing</span>
+              <span class="tog" aria-hidden="true"></span>
+            </summary>
+            <div class="more">
+              <h3>Problem</h3>
+              <p>Most conversation games stay surface-level or get intense too fast, and the physical deck is never there when you want it.</p>
+              <h3>What I built</h3>
+              <p>A mobile-first prompt game with curated modes, privacy controls, prompt memory, and multiplayer rooms that keep everyone on the same card across devices.</p>
+              <a class="go" href="https://sayitanyway.guptau.com/">Play Say It Anyway ↗</a>
+            </div>
+          </details></li>
+
+          <li><details>
+            <summary>
+              <span><span class="t">AI Talent OS</span><span class="d">Recruiter decision support, built on three years of running searches.</span></span>
+              <span class="k"><b>Product</b>Prototyping</span>
+              <span class="tog" aria-hidden="true"></span>
+            </summary>
+            <div class="more">
+              <h3>Problem</h3>
+              <p>Talent teams still lean on manual sourcing and gut-feel screening. AI recruiting tools are fragmented and shallow.</p>
+              <h3>What I'm building</h3>
+              <p>A workflow for AI-assisted sourcing, candidate evidence review and recruiter decision support.</p>
+            </div>
+          </details></li>
+
+          <li><details>
+            <summary>
+              <span><span class="t">AI-driven personalization and loyalty</span><span class="d">White paper with Venkat Atluri (McKinsey) and Tom O'Toole (ex-United).</span></span>
+              <span class="k"><b>Research</b>Published</span>
+              <span class="tog" aria-hidden="true"></span>
+            </summary>
+            <div class="more">
+              <p>Co-authored with Venkat Atluri, Senior Partner at McKinsey, and Tom O'Toole, former CMO of United and President of MileagePlus. How AI could reshape loyalty, personalization and customer engagement, and what that means for platform-led growth.</p>
+              <a class="go" href="https://beonepercentbetter.substack.com/p/21-productizing-loyalty-in-the-age">Read the paper ↗</a>
+            </div>
+          </details></li>
+
+          <li><details>
+            <summary>
+              <span><span class="t">Launching new products, rebuilt for AI</span><span class="d">Redesigned a flagship Kellogg product launch course.</span></span>
+              <span class="k"><b>Teaching</b>Kellogg</span>
+              <span class="tog" aria-hidden="true"></span>
+            </summary>
+            <div class="more">
+              <p>Brought prototyping, UGC analysis and milestone-based execution into the course, so students go from idea to insight to prototype to go-to-market plan inside one quarter.</p>
+              <a class="go" href="https://www6.kellogg.northwestern.edu/CourseCatalog/coursecatalog/coursedetail?coursecatalogid=205521">View the course ↗</a>
+            </div>
+          </details></li>
+
+          <li><details>
+            <summary>
+              <span><span class="t">Be One Percent Better</span><span class="d">A newsletter on AI, growth, product judgment and compounding habits.</span></span>
+              <span class="k"><b>Writing</b>Ongoing</span>
+              <span class="tog" aria-hidden="true"></span>
+            </summary>
+            <div class="more">
+              <p>Essays on AI, growth, product judgment, and the operating habits behind compounding improvement.</p>
+              <a class="go" href="https://beonepercentbetter.substack.com/">Read on Substack ↗</a>
+            </div>
+          </details></li>
+
+          <li><details>
+            <summary>
+              <span><span class="t">Culturally versatile leadership</span><span class="d">Senior thesis on leading across cultures.</span></span>
+              <span class="k"><b>Research</b>Claremont McKenna</span>
+              <span class="tog" aria-hidden="true"></span>
+            </summary>
+            <div class="more">
+              <p>Open-access thesis on global and cross-cultural managerial leadership, and the capabilities it takes to lead in an integrated world.</p>
+              <a class="go" href="https://scholarship.claremont.edu/cmc_theses/2560/">Read the thesis ↗</a>
+            </div>
+          </details></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h">
+    <div class="wrap sec">
+      <div>
+        <h2 id="exp-h">Experience</h2>
+        <p class="note">Fintech, mobility, marketplaces and executive search.</p>
+      </div>
+      <div class="body">
+        <ol class="roles" reversed>
+          <li>
+            <div class="when"><span>2026 – now</span><span>Chicago</span></div>
+            <div>
+              <h3 class="co">DoorDash</h3>
+              <p class="role">Manager, Strategy &amp; Operations: Merchant Product, Experience &amp; Growth</p>
+              <p class="what">Shaping merchant product investments, new revenue opportunities and competitive differentiation. Also cover merchant support, claims and refunds, and quality work that drives retention.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when"><span>Summer 2025</span><span>San Francisco</span></div>
+            <div>
+              <h3 class="co">Chime</h3>
+              <p class="role">Program Manager MBA Intern, AI CX &amp; Product Ops</p>
+              <p class="what">Defined AI-driven support journey improvements and contributed to the 2026 omnichannel roadmap for 9M+ members.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when"><span>Spring 2025</span><span>Chicago</span></div>
+            <div>
+              <h3 class="co">Uber</h3>
+              <p class="role">Product and Growth Consultant, Uber Shuttles</p>
+              <p class="what">Diagnosed B2B shuttle adoption funnels and designed loyalty MVPs to lift corporate rider activation.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when"><span>Spring 2025</span><span>Chicago</span></div>
+            <div>
+              <h3 class="co">GO ICON</h3>
+              <p class="role">Product Manager MBA Intern</p>
+              <p class="what">Sized adjacent markets and scoped MVP concepts for a senior living SaaS platform.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when"><span>2021 – 2024</span><span>Seattle</span></div>
+            <div>
+              <h3 class="co">Parker Remick</h3>
+              <p class="role">Associate II, GTM Strategy &amp; Market Intelligence</p>
+              <p class="ladder">Analyst, then Associate I, then Associate II. Promoted twice in 15 months.</p>
+              <p class="what">Built the firm's commercial systems and led global C-suite product and engineering searches for venture- and PE-backed companies.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when"><span>2019 – 2020</span><span>San Francisco</span></div>
+            <div>
+              <h3 class="co">NovoEd</h3>
+              <p class="role">Revenue Operations Analyst</p>
+              <p class="what">Improved go-to-market visibility and revenue tracking for an enterprise learning SaaS platform.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="also">
+          <h3>Also</h3>
+          <ul>
+            <li>Benhamou Global Ventures <span>Venture Associate, Chicago</span></li>
+            <li>Netlify <span>Strategic Finance Intern, San Francisco</span></li>
+            <li>JPMorgan <span>Global Markets Summer Analyst, Singapore</span></li>
+            <li>EY <span>Advisory Summer Analyst, Mumbai</span></li>
+            <li>The Light Collective <span>Board member. Ran a $400K budget, cut costs 20%, helped raise $200K</span></li>
+          </ul>
+        </div>
+
+        <div class="also edu">
+          <div>
+            <h3>Kellogg School of Management</h3>
+            <p>MBA, Marketing, Finance and Technology Management, 2026</p>
+            <p class="muted">Dean's List. VP of Alumni Relations, Kellogg Student Association. Co-chair, Entrepreneurship Conference. Admissions interviewer.</p>
+          </div>
+          <div>
+            <h3>Claremont McKenna College</h3>
+            <p>BA, Economics and Psychology</p>
+            <p class="muted">Accounting concentration. Research Fellow, Kravis Leadership Institute.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="how-h">
+    <div class="wrap sec">
+      <div>
+        <h2 id="how-h">How I work</h2>
+      </div>
+      <div class="body">
+        <dl class="principles">
+          <div><dt>Clarity over chaos</dt><dd>I turn messy inputs into structured decisions, product direction and operating systems.</dd></div>
+          <div><dt>Build, don't just analyze</dt><dd>The deck is rarely the deliverable. I prototype, test and ship the next useful thing.</dd></div>
+          <div><dt>Systems over shortcuts</dt><dd>Find the root cause, build the repeatable mechanism, and let it compound.</dd></div>
+          <div><dt>High bar, low ego</dt><dd>I care about the work and the people doing it. Demanding on output, easy to work with.</dd></div>
+        </dl>
+        <p class="kit"><strong>Tools:</strong> SQL, Python, Snowflake, Excel and Figma day to day. Replit, Bolt, Lovable, n8n and Claude to prototype. <strong>Languages:</strong> English, Hindi and Indonesian, plus intermediate French.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="said-h">
+    <div class="wrap sec">
+      <div>
+        <h2 id="said-h">What colleagues say</h2>
+        <p class="note">Verbatim, from performance reviews.</p>
+      </div>
+      <div class="body">
+        <ul class="quotes">
+          <li><blockquote><p>Uddhav's ability to identify, scope, and action on an improvement opportunity is incredible. Since jumping into more formally supporting our BD efforts, Uddhav has elevated our GTM capabilities in multiple ways.</p></blockquote></li>
+          <li><blockquote><p>You punch above your weight class. Your work supporting our sales process, leading it, but also dealing with radically different opinions and approaches is really impressive. You go with the flow when that's the right call, and then educate your colleagues when you need people to follow your lead.</p></blockquote></li>
+          <li><blockquote><p>You have incredible talents and think like an investor. You are a gifted person in your communication, your analytical skills, and your presentation.</p></blockquote></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="elsewhere" class="sheet" aria-labelledby="else-h">
+    <div class="wrap sec">
+      <div>
+        <h2 id="else-h">Elsewhere</h2>
+        <p class="note">Shot by me. I've had a camera since I was eleven.</p>
+      </div>
+      <div class="body">
+        <p class="facts">Born in Alwar, raised in Jakarta, and I've kept moving across continents ever since. 22 countries, 1,000+ restaurant reviews on Beli, piano since age seven, and an ongoing search for the best coffee in every city I land in.</p>
+      </div>
+    </div>
+    <div class="sprockets" aria-hidden="true"></div>
+    <div class="strip" tabindex="0" role="region" aria-label="Photography, scroll sideways">
+      <figure class="frame"><div class="num"><span>01</span><span>UG</span></div><img src="img/delicate-arch.webp" width="1092" height="722" loading="lazy" alt="Delicate Arch under the Milky Way"><figcaption>Delicate Arch, Milky Way</figcaption></figure>
+      <figure class="frame"><div class="num"><span>02</span><span>UG</span></div><img src="img/cotinga.webp" width="1088" height="726" loading="lazy" alt="A spangled cotinga perched among green leaves"><figcaption>Spangled cotinga</figcaption></figure>
+      <figure class="frame"><div class="num"><span>03</span><span>UG</span></div><img src="img/chihuly.webp" width="1094" height="820" loading="lazy" alt="Chihuly glass flowers beneath the Space Needle"><figcaption>Chihuly Garden, Seattle</figcaption></figure>
+      <figure class="frame"><div class="num"><span>04</span><span>UG</span></div><img src="img/blue-angels.webp" width="1094" height="726" loading="lazy" alt="Four Blue Angels jets flying in diamond formation"><figcaption>Blue Angels, diamond formation</figcaption></figure>
+      <figure class="frame"><div class="num"><span>05</span><span>UG</span></div><img src="img/track-day.webp" width="1094" height="728" loading="lazy" alt="Black and white photo of sports cars lined up at a track day"><figcaption>Grid start, track day</figcaption></figure>
+      <figure class="frame"><div class="num"><span>06</span><span>UG</span></div><img src="img/light-painting.webp" width="1086" height="716" loading="lazy" alt="Light painting tracing the outline of a guitar"><figcaption>Light painting, guitar</figcaption></figure>
+      <figure class="frame"><div class="num"><span>07</span><span>UG</span></div><img src="img/cherry-blossoms.webp" width="1092" height="728" loading="lazy" alt="Cherry blossoms in front of a gothic building at the University of Washington"><figcaption>Cherry blossoms, UW</figcaption></figure>
+    </div>
+    <div class="sprockets" aria-hidden="true"></div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-h">
+    <div class="wrap contact">
+      <h2 id="contact-h" class="lead-h" hidden>Contact</h2>
+      <p class="lead">Happy to talk product strategy, growth, loyalty, or how AI is changing merchant and customer experiences.</p>
+      <a class="mail" href="mailto:uddhavgupta1998@gmail.com">uddhavgupta1998@gmail.com</a>
+      <ul class="links">
+        <li><a href="https://www.linkedin.com/in/guptauddhav" rel="me">LinkedIn</a></li>
+        <li><a href="https://beonepercentbetter.substack.com/" rel="me">Substack</a></li>
+        <li><a href="https://github.com/uddhavgupta" rel="me">GitHub</a></li>
+        <li><a href="https://beliapp.com">Beli</a> <span>@camtraveller</span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Uddhav Gupta</span>
+    <span>Chicago</span>
+  </div>
+</footer>
+</body>
 </html>
