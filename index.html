@@ -447,6 +447,20 @@ footer .wrap { display: flex; justify-content: space-between; gap: 1rem; padding
 .roll-label h3 { font-family: var(--display); font-weight: 600; font-stretch: 90%; font-size: 1.0625rem; color: #F6F6F3; margin: 0; }
 .roll-label p { margin: 0; color: #8D9198; font-size: 0.875rem; }
 .sheet .strip + .sprockets + .roll-label { margin-top: 2.25rem; }
+.roll-link { margin-left: auto; color: #F6F6F3; font-size: 0.875rem; font-weight: 500; text-decoration-color: #5B6068; white-space: nowrap; }
+.roll-link:hover { color: #fff; text-decoration-color: var(--safelight); }
+.frame-more { display: block; text-decoration: none; color: #F6F6F3; }
+.frame-more .more-box {
+  display: flex; flex-direction: column; justify-content: flex-end; gap: 0.35rem;
+  aspect-ratio: 3 / 2; padding: 1.25rem;
+  border: 1px solid #3A3E44; background: #1E2124;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+.frame-more .more-t { font-family: var(--display); font-weight: 600; font-stretch: 90%; font-size: 1.375rem; letter-spacing: -0.01em; line-height: 1.15; }
+.frame-more .more-u { color: #A3A7AD; font-size: 0.875rem; }
+.frame-more:hover .more-box { border-color: var(--safelight); background: #24272B; }
+.frame-more:hover .more-u { color: #F6F6F3; }
+@media (max-width: 600px) { .roll-label { flex-wrap: wrap; } .roll-link { margin-left: 0; flex-basis: 100%; } }
 .frame.sq { width: clamp(11rem, 19vw, 14.5rem); }
 .frame.sq img { aspect-ratio: 1; }
 @media (max-width: 860px) {
@@ -765,7 +779,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 1rem; padding
         <p class="facts">10 cities called home, 22 countries and 30 US states visited, 1,000+ restaurants reviewed on Beli. The search for the best coffee in each one is still open.</p>
       </div>
     </div>
-    <div class="wrap roll-label"><h3>Photography</h3><p>Shot by me. Scroll sideways.</p></div>
+    <div class="wrap roll-label"><h3>Photography</h3><p>Shot by me. Scroll sideways.</p><a class="roll-link" href="https://photos.guptau.com">Full portfolio at photos.guptau.com ↗</a></div>
     <div class="sprockets" aria-hidden="true"></div>
     <div class="strip" tabindex="0" role="region" aria-label="Photography, scroll sideways">
       <figure class="frame"><div class="num"><span>01</span><span>UG</span></div><img src="img/delicate-arch.webp" width="1092" height="722" loading="lazy" alt="Delicate Arch under the Milky Way"><figcaption>Delicate Arch, Milky Way</figcaption></figure>
@@ -774,7 +788,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 1rem; padding
       <figure class="frame"><div class="num"><span>04</span><span>UG</span></div><img src="img/blue-angels.webp" width="1094" height="726" loading="lazy" alt="Four Blue Angels jets flying in diamond formation"><figcaption>Blue Angels, diamond formation</figcaption></figure>
       <figure class="frame"><div class="num"><span>05</span><span>UG</span></div><img src="img/track-day.webp" width="1094" height="728" loading="lazy" alt="Black and white photo of sports cars lined up at a track day"><figcaption>Grid start, track day</figcaption></figure>
       <figure class="frame"><div class="num"><span>06</span><span>UG</span></div><img src="img/light-painting.webp" width="1086" height="716" loading="lazy" alt="Light painting tracing the outline of a guitar"><figcaption>Light painting, guitar</figcaption></figure>
-      <figure class="frame"><div class="num"><span>07</span><span>UG</span></div><img src="img/cherry-blossoms.webp" width="1092" height="728" loading="lazy" alt="Cherry blossoms in front of a gothic building at the University of Washington"><figcaption>Cherry blossoms, UW</figcaption></figure>
+      <figure class="frame"><div class="num"><span>07</span><span>UG</span></div><img src="img/cherry-blossoms.webp" width="1092" height="728" loading="lazy" alt="Cherry blossoms in front of a gothic building at the University of Washington"><figcaption>Cherry blossoms, UW</figcaption></figure><a class="frame frame-more" href="https://photos.guptau.com"><div class="num"><span>&nbsp;</span><span>UG</span></div><span class="more-box"><span class="more-t">See the full portfolio</span><span class="more-u">photos.guptau.com ↗</span></span></a>
     </div>
     <div class="sprockets" aria-hidden="true"></div>
 
