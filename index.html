@@ -1,13 +1,834 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Resume - Uddhav Gupta</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/index.tsx"></script>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uddhav Gupta | Product, AI, CX & Growth</title>
+<meta name="description" content="Uddhav Gupta is a product-minded operator leading Merchant Product & Experience at DoorDash. Kellogg MBA with experience across fintech, executive search, venture, and AI-enabled products.">
+<link rel="canonical" href="https://guptau.com/">
+<meta name="author" content="Uddhav Gupta">
+<meta name="theme-color" content="#ECEDE8">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Uddhav Gupta">
+<meta property="og:title" content="Uddhav Gupta | Product, AI, CX & Growth">
+<meta property="og:description" content="Product-minded operator turning ambiguous AI, customer experience, and growth problems into structured product and GTM systems.">
+<meta property="og:url" content="https://guptau.com/">
+<meta property="og:image" content="https://guptau.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Uddhav Gupta, Strategy & Operations at DoorDash">
+<meta property="profile:first_name" content="Uddhav">
+<meta property="profile:last_name" content="Gupta">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Uddhav Gupta | Product, AI, CX & Growth">
+<meta name="twitter:description" content="Product-minded operator turning ambiguous AI, customer experience, and growth problems into structured product and GTM systems.">
+<meta name="twitter:image" content="https://guptau.com/og.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Uddhav Gupta",
+  "url": "https://guptau.com/",
+  "image": "https://guptau.com/img/portrait.webp",
+  "jobTitle": "Manager, Strategy & Operations",
+  "worksFor": { "@type": "Organization", "name": "DoorDash", "url": "https://www.doordash.com" },
+  "homeLocation": { "@type": "Place", "name": "Chicago, IL" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Kellogg School of Management, Northwestern University" },
+    { "@type": "CollegeOrUniversity", "name": "Claremont McKenna College" }
+  ],
+  "knowsAbout": ["Product strategy", "Growth", "Loyalty programs", "AI-native products", "Merchant experience", "Go-to-market strategy"],
+  "knowsLanguage": ["English", "Hindi", "Indonesian", "French"],
+  "sameAs": [
+    "https://www.linkedin.com/in/guptauddhav",
+    "https://github.com/uddhavgupta",
+    "https://beonepercentbetter.substack.com/"
+  ]
+}
+</script>
+
+<style>
+@font-face {
+  font-family: "Bricolage";
+  src: url("fonts/bricolage.woff2") format("woff2");
+  font-weight: 200 800; font-stretch: 75% 100%; font-display: swap;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("fonts/instrument-sans.woff2") format("woff2");
+  font-weight: 400 700; font-stretch: 75% 100%; font-display: swap;
+}
+
+:root {
+  --paper: #ECEDE8;
+  --sheet: #F6F6F3;
+  --ink: #131518;
+  --graphite: #565B63;
+  --rule: #C9CCC3;
+  --safelight: #B3261E;
+  --film: #17191C;
+
+  --display: "Bricolage", ui-sans-serif, system-ui, sans-serif;
+  --text: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --rail: 13.5rem;
+  --max: 72rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration-color: var(--rule); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-color: var(--safelight); }
+:focus-visible { outline: 2px solid var(--safelight); outline-offset: 3px; border-radius: 2px; }
+::selection { background: var(--safelight); color: var(--sheet); }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+.skip { position: absolute; left: -999px; top: 0.5rem; background: var(--ink); color: var(--sheet); padding: 0.5rem 0.75rem; z-index: 10; }
+.skip:focus { left: 0.5rem; }
+
+/* ---------- top bar ---------- */
+.bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 1.5rem; padding-bottom: 1.5rem;
+  font-size: 0.9375rem;
+}
+.mark {
+  font-family: var(--display); font-weight: 700; font-stretch: 75%;
+  font-size: 1.125rem; letter-spacing: -0.01em; text-decoration: none;
+}
+.bar nav { display: flex; gap: 1.5rem; }
+.bar nav a { text-decoration: none; color: var(--graphite); }
+.bar nav a:hover { color: var(--ink); }
+
+/* ---------- hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(14rem, 20rem);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: end;
+  padding-top: clamp(3rem, 9vw, 7.5rem);
+  padding-bottom: clamp(3.5rem, 8vw, 6rem);
+}
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-stretch: 75%;
+  font-variation-settings: "opsz" 96;
+  font-size: clamp(4.5rem, 21vw, 10.5rem);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+  margin: 0 0 2.25rem;
+}
+.hero h1 span { display: block; }
+.lede {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 28;
+  font-weight: 400;
+  font-size: clamp(1.375rem, 2.4vw, 1.75rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  max-width: 34ch;
+  margin: 0 0 1.5rem;
+}
+.status { color: var(--graphite); max-width: 52ch; margin: 0 0 2.25rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.7rem 1.15rem;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500; font-size: 0.9375rem;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+.btn.primary { background: var(--ink); color: var(--sheet); }
+.btn.primary:hover { background: var(--safelight); border-color: var(--safelight); }
+.btn:not(.primary):hover { background: var(--ink); color: var(--sheet); }
+
+.portrait { margin: 0; }
+.portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 30%;
+  background: var(--rule);
+}
+.portrait figcaption { font-size: 0.8125rem; color: var(--graphite); margin-top: 0.6rem; }
+
+/* ---------- sections ---------- */
+section { border-top: 1px solid var(--rule); }
+.sec {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  gap: 1.5rem clamp(1.5rem, 4vw, 3rem);
+  padding-top: clamp(3rem, 6vw, 4.5rem);
+  padding-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+.sec h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-stretch: 85%;
+  font-variation-settings: "opsz" 40;
+  font-size: 1.625rem;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+.sec .note { color: var(--graphite); font-size: 0.9375rem; margin: 0.6rem 0 0; max-width: 22ch; }
+.body { min-width: 0; }
+
+/* ---------- work index ---------- */
+.work { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.work li { border-bottom: 1px solid var(--rule); }
+.work details > summary {
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 9.5rem 1.25rem;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1.15rem 0;
+  cursor: pointer;
+}
+.work details > summary::-webkit-details-marker { display: none; }
+.work .t {
+  font-family: var(--display); font-weight: 600; font-stretch: 90%;
+  font-size: 1.3125rem; letter-spacing: -0.01em; line-height: 1.2;
+}
+.work .d { display: block; color: var(--graphite); font-size: 0.9688rem; margin-top: 0.2rem; }
+.work .k { font-size: 0.875rem; color: var(--graphite); }
+.work .k b { font-weight: 500; color: var(--ink); display: block; }
+.work .tog {
+  width: 1.25rem; height: 1.25rem; position: relative; align-self: center;
+}
+.work .tog::before, .work .tog::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 0.75rem; height: 1.5px; background: var(--ink);
+  transform: translate(-50%, -50%);
+  transition: transform 200ms ease;
+}
+.work .tog::after { transform: translate(-50%, -50%) rotate(90deg); }
+.work details[open] .tog::after { transform: translate(-50%, -50%) rotate(0deg); }
+.work summary:hover .t { color: var(--safelight); }
+.work .more {
+  padding: 0 2.5rem 1.6rem 0;
+  max-width: 62ch;
+}
+.work .more p { margin: 0 0 0.8rem; }
+.work .more h3 { font-size: 0.875rem; font-weight: 600; margin: 0 0 0.2rem; color: var(--graphite); }
+.work .go { font-weight: 500; }
+
+/* ---------- experience ---------- */
+.roles { list-style: none; margin: 0; padding: 0; }
+.roles > li {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.35rem 0;
+  border-top: 1px solid var(--rule);
+}
+.roles > li:first-child { border-top: 1px solid var(--ink); }
+.when { font-size: 0.875rem; color: var(--graphite); font-variant-numeric: tabular-nums; padding-top: 0.3rem; }
+.when span { display: block; }
+.co {
+  font-family: var(--display); font-weight: 600; font-stretch: 90%;
+  font-size: 1.3125rem; letter-spacing: -0.01em; line-height: 1.2; margin: 0;
+}
+.role { margin: 0.15rem 0 0.5rem; font-weight: 500; }
+.roles p.what { margin: 0; color: var(--graphite); max-width: 64ch; }
+.ladder { font-size: 0.875rem; color: var(--graphite); margin: 0 0 0.5rem; }
+
+.also { margin-top: 2.25rem; }
+.also h3 {
+  font-family: var(--display); font-weight: 600; font-stretch: 90%;
+  font-size: 1.0625rem; margin: 0 0 0.75rem;
+}
+.also ul { list-style: none; margin: 0; padding: 0; columns: 2 18rem; column-gap: 2rem; }
+.also li { break-inside: avoid; padding: 0.4rem 0; font-size: 0.9688rem; }
+.also li span { color: var(--graphite); }
+
+.edu { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+.edu p { margin: 0 0 0.35rem; }
+.edu .muted { color: var(--graphite); font-size: 0.9688rem; }
+
+/* ---------- principles ---------- */
+.principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 2.5rem; margin: 0; }
+.principles dt {
+  font-family: var(--display); font-weight: 600; font-stretch: 90%;
+  font-size: 1.1875rem; letter-spacing: -0.01em; margin: 0 0 0.35rem;
+}
+.principles dd { margin: 0; color: var(--graphite); max-width: 40ch; }
+.kit { margin: 2.5rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--rule); color: var(--graphite); font-size: 0.9688rem; max-width: 70ch; }
+.kit strong { color: var(--ink); font-weight: 500; }
+
+/* ---------- quotes ---------- */
+.quotes { display: grid; gap: 2.5rem; margin: 0; padding: 0; list-style: none; }
+.quotes blockquote { margin: 0; position: relative; }
+.quotes blockquote p {
+  font-family: var(--display); font-weight: 400;
+  font-variation-settings: "opsz" 28;
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  line-height: 1.38; letter-spacing: -0.01em;
+  margin: 0; max-width: 42ch;
+  text-indent: -0.42em;
+}
+.quotes blockquote p::before { content: "\201C"; color: var(--safelight); }
+.quotes blockquote p::after { content: "\201D"; }
+
+/* ---------- contact sheet (the one loud moment) ---------- */
+.sheet {
+  background: var(--film);
+  color: #E7E8E3;
+  border-top: 0;
+  padding: clamp(3rem, 6vw, 4.5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+}
+.sheet .sec { padding-top: 0; padding-bottom: 2.25rem; }
+.sheet h2 { color: #F6F6F3; }
+.sheet .note { color: #A3A7AD; max-width: 26ch; }
+.sheet .facts { margin: 0; color: #C9CCC6; max-width: 60ch; }
+.strip {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  --inset: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+  padding: 1.75rem var(--inset);
+  scroll-padding-inline: var(--inset);
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: #3A3E44 transparent;
+}
+.strip::before, .strip::after { content: none; }
+.frame {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  margin: 0;
+  width: clamp(15rem, 30vw, 22rem);
+}
+.frame .num {
+  display: flex; justify-content: space-between;
+  font-size: 0.75rem; color: var(--safelight);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+.frame .num span:last-child { color: #6E737A; }
+.frame img {
+  width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
+  background: #24272B;
+  outline: 1px solid #2B2F34;
+}
+.frame figcaption { font-size: 0.8125rem; color: #A3A7AD; margin-top: 0.55rem; }
+.sprockets {
+  height: 0.6rem;
+  background-image: radial-gradient(circle at 50% 50%, var(--paper) 0 0.17rem, transparent 0.18rem);
+  background-size: 1.15rem 0.6rem;
+  background-repeat: repeat-x;
+  opacity: 0.16;
+}
+
+/* ---------- contact ---------- */
+.contact { padding-top: clamp(4rem, 9vw, 7rem); padding-bottom: clamp(3rem, 6vw, 4.5rem); }
+.contact p.lead {
+  font-family: var(--display); font-weight: 400; font-variation-settings: "opsz" 28;
+  font-size: clamp(1.375rem, 2.4vw, 1.75rem); line-height: 1.3; letter-spacing: -0.01em;
+  max-width: 34ch; margin: 0 0 1.5rem;
+}
+.mail {
+  display: inline-block;
+  font-family: var(--display); font-weight: 700; font-stretch: 75%;
+  font-variation-settings: "opsz" 96;
+  font-size: clamp(2rem, 6.5vw, 5rem);
+  line-height: 1; letter-spacing: -0.03em;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.08em;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+.mail:hover { color: var(--safelight); border-color: var(--safelight); }
+.links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; margin: 2.25rem 0 0; padding: 0; list-style: none; }
+.links a { font-weight: 500; }
+.links span { color: var(--graphite); }
+
+footer { border-top: 1px solid var(--rule); }
+footer .wrap { display: flex; justify-content: space-between; gap: 1rem; padding-top: 1.5rem; padding-bottom: 2rem; font-size: 0.875rem; color: var(--graphite); }
+
+
+/* ---------- engagements ---------- */
+.eng { margin-top: 1.1rem; border-top: 1px solid var(--rule); }
+.eng > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.85rem 0; font-weight: 500;
+}
+.eng > summary::-webkit-details-marker { display: none; }
+.eng > summary:hover { color: var(--safelight); }
+.eng .tog { width: 1.25rem; height: 1.25rem; position: relative; }
+.eng .tog::before, .eng .tog::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 0.75rem; height: 1.5px; background: var(--ink);
+  transform: translate(-50%, -50%); transition: transform 200ms ease;
+}
+.eng .tog::after { transform: translate(-50%, -50%) rotate(90deg); }
+.eng[open] .tog::after { transform: translate(-50%, -50%) rotate(0deg); }
+.eng-note { color: var(--graphite); font-size: 0.9375rem; margin: 0 0 1.25rem; max-width: 60ch; }
+.eng-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; padding-bottom: 0.5rem; }
+.eng h4 { font-family: var(--display); font-weight: 600; font-stretch: 90%; font-size: 1rem; margin: 0 0 0.6rem; }
+.eng ul { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 1.25rem; }
+.eng li { font-size: 0.9375rem; padding: 0.22rem 0; break-inside: avoid; }
+
+/* ---------- education ---------- */
+.edu-sec { background: var(--sheet); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.edu-sec + section { border-top: 0; }
+.schools { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; }
+.school { border-top: 3px solid var(--ink); padding-top: 1.1rem; }
+.school .yr { margin: 0 0 0.6rem; color: var(--safelight); font-weight: 600; font-size: 0.9375rem; font-variant-numeric: tabular-nums; }
+.school h3 {
+  font-family: var(--display); font-weight: 700; font-stretch: 80%;
+  font-variation-settings: "opsz" 72;
+  font-size: clamp(1.875rem, 3.4vw, 2.625rem); line-height: 1; letter-spacing: -0.025em;
+  margin: 0 0 0.85rem;
+}
+.school .deg { margin: 0 0 0.6rem; max-width: 36ch; }
+.school .hon { display: inline-block; margin: 0 0 0.9rem; padding: 0.2rem 0.65rem; border: 1px solid var(--ink); border-radius: 999px; font-size: 0.875rem; font-weight: 500; }
+.school ul { list-style: none; margin: 0; padding: 0.9rem 0 0; border-top: 1px solid var(--rule); }
+.school li { color: var(--graphite); font-size: 0.9688rem; padding: 0.15rem 0; }
+.school li a { color: var(--ink); }
+
+/* ---------- what colleagues say ---------- */
+.phrases { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 2rem; }
+.phrases button {
+  font: inherit; font-size: 0.9375rem; font-weight: 500;
+  color: var(--graphite); background: transparent;
+  border: 1px solid var(--rule); border-radius: 999px;
+  padding: 0.5rem 0.95rem; cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+.phrases button:hover { color: var(--ink); border-color: var(--ink); }
+.phrases button[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: var(--sheet); }
+.said-panels { min-height: 13.5rem; }
+.said-panels blockquote { margin: 0; }
+.said-panels blockquote p {
+  font-family: var(--display); font-weight: 400; font-variation-settings: "opsz" 28;
+  font-size: clamp(1.25rem, 2.3vw, 1.625rem); line-height: 1.36; letter-spacing: -0.01em;
+  margin: 0; max-width: 44ch; text-indent: -0.42em;
+}
+.said-panels blockquote p::before { content: "\201C"; color: var(--safelight); }
+.said-panels blockquote p::after { content: "\201D"; }
+.said-count { margin: 1.5rem 0 0; color: var(--graphite); font-size: 0.875rem; font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: no-preference) {
+  .said-panels blockquote:not([hidden]) { animation: fade 320ms ease both; }
+}
+
+/* ---------- contact-sheet rolls ---------- */
+.roll-label { display: flex; align-items: baseline; gap: 1rem; margin-top: 0.5rem; padding-bottom: 0.9rem; }
+.roll-label h3 { font-family: var(--display); font-weight: 600; font-stretch: 90%; font-size: 1.0625rem; color: #F6F6F3; margin: 0; }
+.roll-label p { margin: 0; color: #8D9198; font-size: 0.875rem; }
+.sheet .strip + .sprockets + .roll-label { margin-top: 2.25rem; }
+.frame.sq { width: clamp(11rem, 19vw, 14.5rem); }
+.frame.sq img { aspect-ratio: 1; }
+@media (max-width: 860px) {
+  .schools, .eng-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .eng ul { columns: 2; }
+}
+
+/* ---------- load moment ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1 span {
+    animation: rise 900ms cubic-bezier(.2,.7,.1,1) both;
+    clip-path: inset(0 0 0 0);
+  }
+  .hero h1 span + span { animation-delay: 90ms; }
+  .hero .lede, .hero .status, .hero .actions, .portrait {
+    animation: fade 700ms ease 380ms both;
+  }
+  @keyframes rise { from { transform: translateY(0.35em); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; }
+  .portrait { max-width: 20rem; }
+  .portrait img { aspect-ratio: 1; }
+  .sec { grid-template-columns: 1fr; }
+  .sec .note { max-width: 48ch; }
+}
+@media (max-width: 600px) {
+  .bar nav { gap: 1rem; }
+  .bar nav a.hide-sm { display: none; }
+  .work details > summary { grid-template-columns: minmax(0, 1fr) 1.25rem; }
+  .work .k { grid-column: 1; grid-row: 2; }
+  .work .tog { grid-row: 1; grid-column: 2; }
+  .work .k b { display: inline; }
+  .work .k b::after { content: ", "; font-weight: 400; color: var(--graphite); }
+  .work .more { padding-right: 0; }
+  .said-panels { min-height: 0; }
+  .roles > li { grid-template-columns: 1fr; gap: 0.35rem; }
+  .when span { display: inline; }
+  .when span + span::before { content: ", "; }
+  .principles, .edu { grid-template-columns: 1fr; }
+  footer .wrap { flex-direction: column; }
+}
+@media print {
+  .bar nav, .actions, .sheet, .tog { display: none !important; }
+  body { background: #fff; }
+  .work details > div.more { display: block; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="wrap bar">
+  <a class="mark" href="/" aria-label="Uddhav Gupta, home">UG</a>
+  <nav aria-label="Sections">
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a class="hide-sm" href="#education">Education</a>
+    <a class="hide-sm" href="#elsewhere">Elsewhere</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="wrap hero">
+    <div>
+      <h1><span>Uddhav</span><span>Gupta</span></h1>
+      <p class="lede">Product-minded operator turning ambiguous AI, customer experience, and growth problems into structured product and GTM systems.</p>
+      <p class="status">Currently leading Merchant Product &amp; Experience at DoorDash, shaping product investments, new revenue opportunities, and competitive differentiation. Kellogg MBA with experience across fintech, executive search, venture, and AI-enabled products.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://www.linkedin.com/in/guptauddhav" rel="me">Connect on LinkedIn</a>
+        <a class="btn" href="https://beonepercentbetter.substack.com/" rel="me">Read my newsletter</a>
+        <a class="btn" href="#work">See the work</a>
+      </div>
+    </div>
+    <figure class="portrait">
+      <img src="img/portrait.webp" width="720" height="956" alt="Uddhav Gupta holding a camera under cherry blossoms at the University of Washington">
+      <figcaption>Cherry blossom season, University of Washington</figcaption>
+    </figure>
+  </div>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="wrap sec">
+      <div>
+        <h2 id="work-h">Selected work</h2>
+        <p class="note">Things I've built, written and taught. Open any line for the detail.</p>
+      </div>
+      <div class="body">
+        <ul class="work">
+          <li><details>
+            <summary>
+              <span><span class="t">OrbitCRM</span><span class="d">A personal CRM that tracks people, not pipelines.</span></span>
+              <span class="k"><b>Product</b>In testing</span>
+              <span class="tog" aria-hidden="true"></span>
+            </summary>
+            <div class="more">
+              <h3>Problem</h3>
+              <p>Relationship tracking is stuck inside enterprise CRMs built for sales pipelines, not human context.</p>
+              <h3>What I built</h3>
+              <p>A lightweight CRM for relationships, context, notes and follow-ups, without the bloat.</p>
+              <a class="go" href="https://tryorbitcrm.lovable.app">Open OrbitCRM ↗</a>
+            </div>
+          </details></li>
+
+          <li><details>
+            <summary>
+              <span><span class="t">Say It Anyway</span><span class="d">A conversation card game you can actually have on you.</span></span>
+              <span class="k"><b>Product</b>In testing</span>
+              <span class="tog" aria-hidden="true"></span>
+            </summary>
+            <div class="more">
+              <h3>Problem</h3>
+              <p>Most conversation games stay surface-level or get intense too fast, and the physical deck is never there when you want it.</p>
+              <h3>What I built</h3>
+              <p>A mobile-first prompt game with curated modes, privacy controls, prompt memory, and multiplayer rooms that keep everyone on the same card across devices.</p>
+              <a class="go" href="https://sayitanyway.guptau.com/">Play Say It Anyway ↗</a>
+            </div>
+          </details></li>
+
+          <li><details>
+            <summary>
+              <span><span class="t">AI-driven personalization and loyalty</span><span class="d">White paper with Venkat Atluri (McKinsey) and Tom O'Toole (ex-United).</span></span>
+              <span class="k"><b>Research</b>Published</span>
+              <span class="tog" aria-hidden="true"></span>
+            </summary>
+            <div class="more">
+              <p>Co-authored with Venkat Atluri, Senior Partner at McKinsey, and Tom O'Toole, former CMO of United and President of MileagePlus. How AI could reshape loyalty, personalization and customer engagement, and what that means for platform-led growth.</p>
+              <a class="go" href="https://beonepercentbetter.substack.com/p/21-productizing-loyalty-in-the-age">Read the paper ↗</a>
+            </div>
+          </details></li>
+
+          <li><details>
+            <summary>
+              <span><span class="t">Launching new products, rebuilt for AI</span><span class="d">Redesigned a flagship Kellogg product launch course.</span></span>
+              <span class="k"><b>Teaching</b>Kellogg</span>
+              <span class="tog" aria-hidden="true"></span>
+            </summary>
+            <div class="more">
+              <p>Brought prototyping, UGC analysis and milestone-based execution into the course, so students go from idea to insight to prototype to go-to-market plan inside one quarter.</p>
+              <a class="go" href="https://www6.kellogg.northwestern.edu/CourseCatalog/coursecatalog/coursedetail?coursecatalogid=205521">View the course ↗</a>
+            </div>
+          </details></li>
+
+          <li><details>
+            <summary>
+              <span><span class="t">Be One Percent Better</span><span class="d">A newsletter on AI, growth, product judgment and compounding habits.</span></span>
+              <span class="k"><b>Writing</b>Ongoing</span>
+              <span class="tog" aria-hidden="true"></span>
+            </summary>
+            <div class="more">
+              <p>Essays on AI, growth, product judgment, and the operating habits behind compounding improvement.</p>
+              <a class="go" href="https://beonepercentbetter.substack.com/">Read on Substack ↗</a>
+            </div>
+          </details></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h">
+    <div class="wrap sec">
+      <div>
+        <h2 id="exp-h">Experience</h2>
+        <p class="note">Fintech, mobility, marketplaces and executive search.</p>
+      </div>
+      <div class="body">
+        <ol class="roles" reversed>
+          <li>
+            <div class="when"><span>2026 – now</span><span>Chicago</span></div>
+            <div>
+              <h3 class="co">DoorDash</h3>
+              <p class="role">Manager, Strategy &amp; Operations: Merchant Product, Experience &amp; Growth</p>
+              <p class="what">Leading the Merchant Product &amp; Experience team, shaping merchant product investments and driving new revenue opportunities and competitive differentiation. Also overseeing merchant support, claims and refunds, and quality improvement initiatives that drive retention and growth.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when"><span>Summer 2025</span><span>San Francisco</span></div>
+            <div>
+              <h3 class="co">Chime</h3>
+              <p class="role">Program Manager MBA Intern, AI CX &amp; Product Ops</p>
+              <p class="what">Defined AI-driven support journey improvements and contributed to the 2026 omnichannel roadmap for 9M+ members.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when"><span>Spring 2025</span><span>Chicago</span></div>
+            <div>
+              <h3 class="co">Uber</h3>
+              <p class="role">Product and Growth Consultant, Uber Shuttles</p>
+              <p class="what">Diagnosed B2B shuttle adoption funnels and designed loyalty MVPs to lift corporate rider activation.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when"><span>Spring 2025</span><span>Chicago</span></div>
+            <div>
+              <h3 class="co">GO ICON</h3>
+              <p class="role">Product Manager MBA Intern</p>
+              <p class="what">Sized adjacent markets and scoped MVP concepts for a senior living SaaS platform.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when"><span>2021 – 2024</span><span>Seattle</span></div>
+            <div>
+              <h3 class="co">Parker Remick</h3>
+              <p class="role">Associate II, GTM Strategy &amp; Market Intelligence</p>
+              <p class="ladder">Analyst, then Associate I, then Associate II. Promoted twice in 15 months.</p>
+              <p class="what">Built scalable commercial systems and led global C-suite product and engineering searches for venture- and PE-backed companies.</p>
+              <details class="eng">
+                <summary>Representative engagements <span class="tog" aria-hidden="true"></span></summary>
+                <p class="eng-note">C-suite and VP-level executive search for venture-backed, PE-backed and enterprise clients.</p>
+                <div class="eng-grid">
+                  <div><h4>Selected clients</h4><ul><li>Square</li><li>Walmart</li><li>Instacart</li><li>Figma</li><li>Postman</li><li>Airbase</li><li>Rasa</li><li>UnitedMasters</li><li>OpenSea</li><li>Adlib</li><li>Swoogo</li><li>Pangaea</li><li>Superhuman</li><li>Scribbles Software</li><li>Envase</li><li>Front</li><li>TigerGraph</li><li>WISEcode</li><li>SES</li><li>Headway</li></ul></div>
+                  <div><h4>Investor ecosystems</h4><ul><li>Andreessen Horowitz</li><li>Menlo Ventures</li><li>Coatue</li><li>Accel</li><li>Bain Capital</li><li>Sequoia</li><li>Y Combinator</li><li>Index Ventures</li><li>Khosla Ventures</li><li>Kleiner Perkins</li><li>Tiger Global</li><li>ICONIQ</li><li>FJ Labs</li><li>Diversis Capital</li><li>Susquehanna (SIG)</li><li>Insight Partners</li><li>Data Collective</li><li>Gradient Ventures</li><li>General Catalyst</li><li>Village Global</li></ul></div>
+                </div>
+              </details>
+            </div>
+          </li>
+          <li>
+            <div class="when"><span>2019 – 2020</span><span>San Francisco</span></div>
+            <div>
+              <h3 class="co">NovoEd</h3>
+              <p class="role">Revenue Operations Analyst</p>
+              <p class="what">Improved go-to-market visibility and revenue tracking for an enterprise learning SaaS platform.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="also">
+          <h3>Also</h3>
+          <ul>
+            <li>Benhamou Global Ventures <span>Venture Associate, Chicago</span></li>
+            <li>Netlify <span>Strategic Finance Intern, San Francisco</span></li>
+            <li>JPMorgan <span>Global Markets Summer Analyst, Singapore</span></li>
+            <li>EY <span>Advisory Summer Analyst, Mumbai</span></li>
+            <li>The Light Collective <span>Board member. Ran a $400K budget, cut costs 20%, helped raise $200K</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="edu-sec" aria-labelledby="edu-h">
+    <div class="wrap sec">
+      <div>
+        <h2 id="edu-h">Education</h2>
+      </div>
+      <div class="body schools">
+        <article class="school">
+          <p class="yr">MBA, 2026</p>
+          <h3>Kellogg School of Management</h3>
+          <p class="deg">Northwestern University. Marketing, Finance and Technology Management.</p>
+          <p class="hon">Dean's List</p>
+          <ul>
+            <li>VP of Alumni Relations, Kellogg Student Association</li>
+            <li>Co-chair, Entrepreneurship Conference</li>
+            <li>Admissions Interviewer</li>
+          </ul>
+        </article>
+        <article class="school">
+          <p class="yr">BA</p>
+          <h3>Claremont McKenna College</h3>
+          <p class="deg">Economics and Psychology, with a concentration in Accounting.</p>
+          <ul>
+            <li>Research Fellow, Kravis Leadership Institute</li>
+            <li>Senior thesis: <a href="https://scholarship.claremont.edu/cmc_theses/2560/">Culturally Versatile Leadership ↗</a></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="how-h">
+    <div class="wrap sec">
+      <div>
+        <h2 id="how-h">How I work</h2>
+      </div>
+      <div class="body">
+        <dl class="principles">
+          <div><dt>Clarity over chaos</dt><dd>I turn messy inputs into structured decisions, product direction and operating systems.</dd></div>
+          <div><dt>Build, don't just analyze</dt><dd>The deck is rarely the deliverable. I prototype, test and ship the next useful thing.</dd></div>
+          <div><dt>Systems over shortcuts</dt><dd>Find the root cause, build the repeatable mechanism, and let it compound.</dd></div>
+          <div><dt>High bar, low ego</dt><dd>I care about the work and the people doing it. Demanding on output, easy to work with.</dd></div>
+        </dl>
+        <p class="kit"><strong>Tools:</strong> SQL, Python, Snowflake, Excel and Figma day to day. Replit, Lovable, n8n and Claude to prototype. <strong>Languages:</strong> English, Hindi and Indonesian, plus intermediate French.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="said-h">
+    <div class="wrap sec">
+      <div>
+        <h2 id="said-h">What colleagues say</h2>
+        <p class="note">Verbatim, from performance reviews and colleagues. Pick a theme to read the full quote.</p>
+      </div>
+      <div class="body">
+        <div class="said">
+          <div class="phrases" role="tablist" aria-label="What colleagues say"><button type="button" role="tab" id="qt0" aria-controls="qp0" aria-selected="true" tabindex="0">Punches above his weight</button><button type="button" role="tab" id="qt1" aria-controls="qp1" aria-selected="false" tabindex="-1">Thinks like an investor</button><button type="button" role="tab" id="qt2" aria-controls="qp2" aria-selected="false" tabindex="-1">Elevates go-to-market</button><button type="button" role="tab" id="qt3" aria-controls="qp3" aria-selected="false" tabindex="-1">A machine</button><button type="button" role="tab" id="qt4" aria-controls="qp4" aria-selected="false" tabindex="-1">Calm under pressure</button><button type="button" role="tab" id="qt5" aria-controls="qp5" aria-selected="false" tabindex="-1">Having fun, getting it done</button></div>
+          <div class="said-panels"><blockquote role="tabpanel" id="qp0" aria-labelledby="qt0" tabindex="0"><p>You &#8220;punch above your weight class.&#8221; I love how eager you are to jump in and challenge yourself. Your work supporting our sales process, leading it, but also dealing with radically different opinions and approaches is really impressive. You go with the flow when that's the right call, and then educate your colleagues when you need people to follow your lead. It's a difficult balance to strike and you do it with grace.</p></blockquote><blockquote role="tabpanel" id="qp1" aria-labelledby="qt1" tabindex="0" hidden><p>You have incredible talents and think like an investor. I am grateful for all that you put into Parker Remick and supporting others so much. You are a gifted person in your communication, your analytical skills, and your presentation. You help other people first and yourself last. Thank you for being a great colleague and friend.</p></blockquote><blockquote role="tabpanel" id="qp2" aria-labelledby="qt2" tabindex="0" hidden><p>Uddhav's ability to identify, scope, and action on an improvement opportunity is incredible. Since jumping into more formally supporting our BD efforts, Uddhav has elevated our GTM capabilities in multiple ways.</p></blockquote><blockquote role="tabpanel" id="qp3" aria-labelledby="qt3" tabindex="0" hidden><p>Uddhav is a machine. He's so productive and efficient. He's so capable across many dimensions. He's made material contributions to our BD effort. He gets this business. I foresee him making great strides in the coming year. I appreciate seeing him get better at his craft.</p></blockquote><blockquote role="tabpanel" id="qp4" aria-labelledby="qt4" tabindex="0" hidden><p>The way you handle pressure and maintain a calm demeanor is impressive. It sets a great example for the rest of us!</p></blockquote><blockquote role="tabpanel" id="qp5" aria-labelledby="qt5" tabindex="0" hidden><p>Uddhav strikes the perfect balance between work-serious and sociable-fun. He'll bring the productive, polished, work focus, and also the on-the-mark jokes and stories to keep it fun. The best energy: having fun, and getting it done.</p></blockquote></div>
+          <p class="said-count" aria-hidden="true"><span id="qn">1</span> of 6</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="elsewhere" class="sheet" aria-labelledby="else-h">
+    <div class="wrap sec">
+      <div>
+        <h2 id="else-h">Elsewhere</h2>
+        <p class="note">A camera since age eleven, piano since seven.</p>
+      </div>
+      <div class="body">
+        <p class="facts">10 cities called home, 22 countries and 30 US states visited, 1,000+ restaurants reviewed on Beli. The search for the best coffee in each one is still open.</p>
+      </div>
+    </div>
+    <div class="wrap roll-label"><h3>Photography</h3><p>Shot by me. Scroll sideways.</p></div>
+    <div class="sprockets" aria-hidden="true"></div>
+    <div class="strip" tabindex="0" role="region" aria-label="Photography, scroll sideways">
+      <figure class="frame"><div class="num"><span>01</span><span>UG</span></div><img src="img/delicate-arch.webp" width="1092" height="722" loading="lazy" alt="Delicate Arch under the Milky Way"><figcaption>Delicate Arch, Milky Way</figcaption></figure>
+      <figure class="frame"><div class="num"><span>02</span><span>UG</span></div><img src="img/cotinga.webp" width="1088" height="726" loading="lazy" alt="A spangled cotinga perched among green leaves"><figcaption>Spangled cotinga</figcaption></figure>
+      <figure class="frame"><div class="num"><span>03</span><span>UG</span></div><img src="img/chihuly.webp" width="1094" height="820" loading="lazy" alt="Chihuly glass flowers beneath the Space Needle"><figcaption>Chihuly Garden, Seattle</figcaption></figure>
+      <figure class="frame"><div class="num"><span>04</span><span>UG</span></div><img src="img/blue-angels.webp" width="1094" height="726" loading="lazy" alt="Four Blue Angels jets flying in diamond formation"><figcaption>Blue Angels, diamond formation</figcaption></figure>
+      <figure class="frame"><div class="num"><span>05</span><span>UG</span></div><img src="img/track-day.webp" width="1094" height="728" loading="lazy" alt="Black and white photo of sports cars lined up at a track day"><figcaption>Grid start, track day</figcaption></figure>
+      <figure class="frame"><div class="num"><span>06</span><span>UG</span></div><img src="img/light-painting.webp" width="1086" height="716" loading="lazy" alt="Light painting tracing the outline of a guitar"><figcaption>Light painting, guitar</figcaption></figure>
+      <figure class="frame"><div class="num"><span>07</span><span>UG</span></div><img src="img/cherry-blossoms.webp" width="1092" height="728" loading="lazy" alt="Cherry blossoms in front of a gothic building at the University of Washington"><figcaption>Cherry blossoms, UW</figcaption></figure>
+    </div>
+    <div class="sprockets" aria-hidden="true"></div>
+
+    <div class="wrap roll-label"><h3>Culinary adventures</h3><p>Cooked by me, mostly from scratch.</p></div>
+    <div class="sprockets" aria-hidden="true"></div>
+    <div class="strip" tabindex="0" role="region" aria-label="Culinary photos, scroll sideways"><figure class="frame sq"><div class="num"><span>08</span><span>UG</span></div><img src="img/food-paneer.webp" width="640" height="640" loading="lazy" alt="Paneer masala in a white baking dish"><figcaption>Paneer masala, from scratch</figcaption></figure><figure class="frame sq"><div class="num"><span>09</span><span>UG</span></div><img src="img/food-fritters.webp" width="640" height="640" loading="lazy" alt="Fritters with arugula and dill yogurt"><figcaption>Crispy fritters, arugula and dill yogurt</figcaption></figure><figure class="frame sq"><div class="num"><span>10</span><span>UG</span></div><img src="img/food-old-fashioned.webp" width="640" height="640" loading="lazy" alt="Old fashioned cocktails by a fireplace"><figcaption>Woodford Reserve old fashioned</figcaption></figure><figure class="frame sq"><div class="num"><span>11</span><span>UG</span></div><img src="img/food-chia.webp" width="640" height="640" loading="lazy" alt="Chia pudding topped with strawberries and blueberries"><figcaption>Chia pudding, berry bowl</figcaption></figure><figure class="frame sq"><div class="num"><span>12</span><span>UG</span></div><img src="img/food-pancakes.webp" width="640" height="640" loading="lazy" alt="Stack of oat pancakes with blueberries and pecans"><figcaption>Oat pancakes, blueberry pecan</figcaption></figure><figure class="frame sq"><div class="num"><span>13</span><span>UG</span></div><img src="img/food-tofu-board.webp" width="640" height="640" loading="lazy" alt="Crispy tofu board with smoothies"><figcaption>Crispy tofu board and smoothies</figcaption></figure><figure class="frame sq"><div class="num"><span>14</span><span>UG</span></div><img src="img/food-med-bowl.webp" width="640" height="640" loading="lazy" alt="Mediterranean bowl with bulgur and chickpeas"><figcaption>Mediterranean bowl, bulgur and chickpea</figcaption></figure></div>
+    <div class="sprockets" aria-hidden="true"></div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-h">
+    <div class="wrap contact">
+      <h2 id="contact-h" class="lead-h" hidden>Contact</h2>
+      <p class="lead">Happy to talk product strategy, growth, loyalty, or how AI is changing merchant and customer experiences.</p>
+      <a class="mail" href="https://www.linkedin.com/in/guptauddhav" rel="me">Say hello on LinkedIn</a>
+      <ul class="links">
+        <li><a href="https://beonepercentbetter.substack.com/" rel="me">Substack</a></li>
+        <li><a href="https://github.com/uddhavgupta" rel="me">GitHub</a></li>
+        <li><a href="https://beliapp.com">Beli</a> <span>@camtraveller</span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Uddhav Gupta</span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const tabs = [...document.querySelectorAll('.phrases [role="tab"]')];
+  const n = document.getElementById('qn');
+  const select = (i, focus) => {
+    tabs.forEach((t, j) => {
+      const on = i === j;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (n) n.textContent = i + 1;
+    if (focus) tabs[i].focus();
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(i));
+    t.addEventListener('keydown', e => {
+      const k = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+      if (k) { e.preventDefault(); select((i + k + tabs.length) % tabs.length, true); }
+      if (e.key === 'Home') { e.preventDefault(); select(0, true); }
+      if (e.key === 'End') { e.preventDefault(); select(tabs.length - 1, true); }
+    });
+  });
+})();
+</script>
+</body>
 </html>
