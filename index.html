@@ -8,6 +8,7 @@
 <link rel="canonical" href="https://guptau.com/">
 <meta name="author" content="Uddhav Gupta">
 <meta name="theme-color" content="#ECEDE8">
+<meta name="format-detection" content="telephone=no">
 
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Uddhav Gupta">
@@ -470,6 +471,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 1rem; padding
   .eng ul { columns: 2; }
 }
 
+
 /* ---------- load moment ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .hero h1 span {
@@ -514,6 +516,57 @@ footer .wrap { display: flex; justify-content: space-between; gap: 1rem; padding
   body { background: #fff; }
   .work details > div.more { display: block; }
 }
+
+/* ---------- phone layout ---------- */
+html { -webkit-tap-highlight-color: transparent; }
+@media (max-width: 600px) {
+  body { font-size: 1rem; }
+  .bar { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+  .bar nav a, .mark { padding: 0.65rem 0; }
+
+  /* hero: name and a compact portrait share the first row */
+  .hero { grid-template-columns: minmax(0, 1fr) 6.25rem; gap: 0 1rem; padding-top: 1.5rem; padding-bottom: 2.75rem; }
+  .hero > div:first-child { display: contents; }
+  .hero h1 { grid-column: 1; grid-row: 1; font-size: clamp(3.75rem, 22vw, 6rem); margin-bottom: 1.5rem; align-self: end; }
+  .portrait { grid-column: 2; grid-row: 1; max-width: none; align-self: start; margin-top: 0.35rem; }
+  .portrait img { aspect-ratio: 4 / 5; }
+  .hero .lede, .hero .status, .hero .actions { grid-column: 1 / -1; }
+  .lede { font-size: 1.3125rem; }
+  .status { font-size: 0.9688rem; margin-bottom: 1.75rem; }
+  .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .actions .btn { justify-content: center; min-height: 2.875rem; padding: 0.7rem 0.75rem; }
+  .actions .btn.primary { grid-column: 1 / -1; }
+  .actions .hide-sm { display: none; }
+  .actions .btn { white-space: nowrap; }
+
+  .sec { gap: 1.25rem; padding-top: 2.75rem; padding-bottom: 2.75rem; }
+  .sec h2 { font-size: 1.5rem; }
+
+  /* bigger tap targets for inline links */
+  .work .go, .links a, .roll-link, .school li a { display: inline-block; padding: 0.6rem 0; }
+  .work .more { padding-bottom: 1.1rem; }
+
+  /* quotes: one swipeable row of themes instead of five stacked rows */
+  .phrases {
+    flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x proximity;
+    margin: 0 calc(-1 * var(--gutter)) 1.5rem; padding: 0 var(--gutter) 0.25rem;
+    scrollbar-width: none;
+  }
+  .phrases::-webkit-scrollbar { display: none; }
+  .phrases button { flex: 0 0 auto; scroll-snap-align: start; min-height: 2.75rem; }
+  .said-panels blockquote p { font-size: 1.1875rem; }
+
+  /* contact sheets */
+  .sheet { padding-top: 2.75rem; }
+  .roll-label { gap: 0 0.75rem; }
+  .roll-label p { flex: 1 1 auto; }
+  .frame { width: 78vw; }
+  .frame.sq { width: 56vw; }
+
+  .contact { padding-top: 3.5rem; }
+  .mail { font-size: 2.5rem; }
+}
+
 </style>
 </head>
 <body>
@@ -538,7 +591,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 1rem; padding
       <p class="status">Currently leading Merchant Product &amp; Experience at DoorDash, shaping product investments, new revenue opportunities, and competitive differentiation. Kellogg MBA with experience across fintech, executive search, venture, and AI-enabled products.</p>
       <div class="actions">
         <a class="btn primary" href="https://www.linkedin.com/in/guptauddhav" rel="me">Connect on LinkedIn</a>
-        <a class="btn" href="https://beonepercentbetter.substack.com/" rel="me">Read my newsletter</a>
+        <a class="btn" href="https://beonepercentbetter.substack.com/" rel="me"><span class="hide-sm">Read my&nbsp;</span>newsletter</a>
         <a class="btn" href="#work">See the work</a>
       </div>
     </div>
@@ -779,7 +832,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 1rem; padding
         <p class="facts">10 cities called home, 22 countries and 30 US states visited, 1,000+ restaurants reviewed on Beli. The search for the best coffee in each one is still open.</p>
       </div>
     </div>
-    <div class="wrap roll-label"><h3>Photography</h3><p>Shot by me. Scroll sideways.</p><a class="roll-link" href="https://photos.guptau.com">Full portfolio at photos.guptau.com ↗</a></div>
+    <div class="wrap roll-label"><h3>Photography</h3><p>Shot by me.</p><a class="roll-link" href="https://photos.guptau.com">Full portfolio at photos.guptau.com ↗</a></div>
     <div class="sprockets" aria-hidden="true"></div>
     <div class="strip" tabindex="0" role="region" aria-label="Photography, scroll sideways">
       <figure class="frame"><div class="num"><span>01</span><span>UG</span></div><img src="img/delicate-arch.webp" width="1092" height="722" loading="lazy" alt="Delicate Arch under the Milky Way"><figcaption>Delicate Arch, Milky Way</figcaption></figure>
